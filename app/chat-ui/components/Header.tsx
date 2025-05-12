@@ -48,14 +48,14 @@ export default function HeaderAISearch() {
            AI ChatBot
           </Link>
           <Link
-            href="/about"
+            href="/chat-ui"
             className="text-gray-700 hover:text-black transition"
           >
             About
           </Link>
 
           <Link
-            href="/contact"
+            href="/chat-ui"
             className="text-gray-700 hover:text-black transition"
           >
             Contact
