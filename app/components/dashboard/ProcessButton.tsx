@@ -70,9 +70,7 @@ export default function ProcessButton({
   const handleProcess = async () => {
     if (!selectedAudio) return
     // Normalize selectedAudio
-    const correctedAudio = selectedAudio.startsWith("/audio_sample/")
-      ? selectedAudio.replace("–", "-")
-      : `/audio_sample${selectedAudio.startsWith("/") ? selectedAudio : `/${selectedAudio}`}`.replace("–", "-");
+    const correctedAudio = selectedAudio.replace("–", "-");
     
     console.log("selectedAudio:", selectedAudio, "correctedAudio:", correctedAudio)
     setLoading(true)
