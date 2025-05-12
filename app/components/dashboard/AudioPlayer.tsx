@@ -151,8 +151,10 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, fileName }) => {
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
 
-  // Prepend /audio_sample/ to src if not already present
-  const correctedSrc = src.startsWith("/audio_sample/") ? src : `/audio_sample${src.startsWith("/") ? src : `/${src}`}`;
+  // Normalize src to include /audio_sample/ and handle special characters
+  const correctedSrc = src.startsWith("/audio_sample/") 
+    ? src.replace("–", "-") // Replace en dash with hyphen
+    : `/audio_sample${src.startsWith("/") ? src : `/${src}`}`.replace("–", "-");
 
   useEffect(() => {
     const audio = audioRef.current
@@ -161,15 +163,18 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, fileName }) => {
     const onLoaded = () => setDuration(audio.duration)
     const onTimeUpdate = () => setCurrentTime(audio.currentTime)
     const onEnded = () => setIsPlaying(false)
+    const onError = () => console.error("Audio loading error:", audio.error)
 
     audio.addEventListener("loadedmetadata", onLoaded)
     audio.addEventListener("timeupdate", onTimeUpdate)
     audio.addEventListener("ended", onEnded)
+    audio.addEventListener("error", onError)
 
     return () => {
       audio.removeEventListener("loadedmetadata", onLoaded)
       audio.removeEventListener("timeupdate", onTimeUpdate)
       audio.removeEventListener("ended", onEnded)
+      audio.removeEventListener("error", onError)
     }
   }, [])
 
@@ -181,7 +186,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, fileName }) => {
     if (isPlaying) {
       audio.pause()
     } else {
-      audio.play().catch((error) => console.error("Playback error:", error));
+      audio.play().catch((error) => console.error("Playback error:", error))
     }
     setIsPlaying(!isPlaying)
   }
@@ -194,9 +199,11 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, fileName }) => {
     }
   }
 
+  // Updated to handle spaces and hyphens
   const extractFileName = (fullPath: string) => {
-    const parts = fullPath.split("_")
-    return parts[parts.length - 1]
+    const parts = fullPath.split("/")
+    const file = parts[parts.length - 1]
+    return decodeURIComponent(file) // Decode %20 to spaces
   }
 
   const formatTime = (t: number) =>
@@ -211,7 +218,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, fileName }) => {
           <Mic />
         </div>
         <div className="truncate text-sm font-semibold text-gray-700 max-w-xs">
-          {fileName || extractFileName(src)}
+          {fileName || extractFileName(correctedSrc)}
         </div>
       </div>
 
