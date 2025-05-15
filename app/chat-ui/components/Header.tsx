@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { useAISearch } from "../../context/AISearchContext"
 import { decodeJWT } from "@/app/utils/decodeJWT"
 import Link from "next/link"
+import Image from "next/image";
 
 export default function HeaderAISearch() {
   const [username, setUsername] = useState<string | null>(null)
@@ -34,7 +35,13 @@ export default function HeaderAISearch() {
     <header className="p-4 bg-white fixed top-0 z-50 w-full backdrop-blur-xl supports-[backdrop-filter]:bg-white/60">
       <div className="w-full max-w-7xl mx-auto px-4 flex items-center justify-between">
           <div>
-            <img src="/Otow-log.svg" alt="Otow Logo" width={100} />
+            <Image
+            src="/Otow-log.svg"
+            alt="Otow Logo"
+            width={100}
+            height={40}
+            priority
+          />
           </div>
           <nav className="hidden md:flex space-x-6">
           {/* <Link href="/" className="text-gray-700 hover:text-black transition">
