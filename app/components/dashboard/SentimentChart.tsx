@@ -306,12 +306,12 @@ export default function SentimentChart({ data }: { data?: SentimentItem[] }) {
             tickFormatter={(v) =>
               v === 1 ? "Positive" : v === 0 ? "Neutral" : "Negative"
             }
-            label={{
-              value: "Sentiment",
-              angle: -90,
-              position: "insideLeft",
-              style: { fill: "#6b7280", fontSize: 12 },
-            }}
+            // label={{
+            //   value: "Sentiment",
+            //   angle: -90,
+            //   position: "insideLeft",
+            //   style: { fill: "#6b7280", fontSize: 12 },
+            // }}
           />
 
           {/* Tooltip */}
@@ -344,7 +344,8 @@ export default function SentimentChart({ data }: { data?: SentimentItem[] }) {
             dataKey="sentiment"
             stroke="url(#sentimentGradient)"
             strokeWidth={3}
-            dot={{ r: 4, stroke: "#fff", strokeWidth: 2 }}
+            // dot={{ r: 4, stroke: "#fff", strokeWidth: 2 }}
+            dot={false}
             activeDot={{ r: 6 }}
           />
         </LineChart>
