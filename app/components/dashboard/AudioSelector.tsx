@@ -44,8 +44,9 @@ export default function AudioSelector({
       {loading ? (
         <p>Loading audio files...</p>
       ) : (
+        <div className="relative">
         <select
-          className="w-full border border-gray-300 rounded px-3 py-2"
+          className="w-full h-[55px] appearance-none px-4 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           onChange={(e) => {
             setSelectedAudio(e.target.value)
             clearGraphData()
@@ -61,9 +62,21 @@ export default function AudioSelector({
             </option>
           ))}
         </select>
-      )}
+        <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none">
+        {/* <svg className="w-4 h-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+        </svg> */}
 
-      {selectedAudio && <AudioPlayer src={audioUrl} />}
+        <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.10378 1.09419L5.82044 6.00739L10.5371 1.09419" stroke="#34334B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+      </div>
+      </div>
+      )}
+      <div className="dashbord-miannot">
+        {selectedAudio && <AudioPlayer src={audioUrl} />}
+      </div>
     </>
   )
 }

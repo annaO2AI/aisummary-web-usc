@@ -3,9 +3,13 @@ import {
   BarChart2Icon,
   SettingsIcon,
 } from "lucide-react"
+import {
+  LoganimationsIcon,
+} from "../../chat-ui/components/icons"
 import clsx from "clsx"
 import { AudioSelector, ProcessButton } from "./index"
 import { useDashboard } from "../../context/DashboardContext"
+import Image from 'next/image';
 
 const navItems = [
   { label: "Home", icon: HomeIcon, href: "#" },
@@ -26,8 +30,58 @@ export default function Dashbordmain() {
 
 
   return (
-    <div className="hidden">
-        <div className="p-4 space-y-4 mt-6 border-t pt-4">
+    <div className="hidden ot-dashbord-main-container">
+         <div className="ot-min-h-screen flex items-center justify-center">
+            <div className="max-w-6xl w-full grid md:grid-cols-2 gap-10 items-center">
+                {/* Illustration */}
+                <div className="flex justify-center">
+                 <Image 
+                    src="/dashboard-main.svg" 
+                    alt="I Call Summary Illustration" 
+                    width={349} 
+                    height={282} 
+                    className="w-full max-w-md"
+                />
+                </div>
+
+                {/* Content */}
+                <div className="space-y-6">
+                    <div className="flex flex-col items-left justify-center mb-4">
+                        <LoganimationsIcon width={73} />
+                        <div className="text-4xl font-bold w-2xl otitle mt-4 mb-4">
+                           Hi there, John<br></br>
+                           AI-Powered Call Summaries with
+                           Sentiment Intelligence
+                        </div>
+                        <p className="osubtitle text-base  mb-4">
+                            Instantly convert conversations into clear, actionable summaries. <br />
+                            Understand emotions behind every word with intelligent sentiment analysis.
+                        </p>
+                    </div>
+                <div>
+                    <label htmlFor="audioFile" className="block text-sm font-medium text-gray-700">
+                    Call Audio
+                    </label>
+                    <div className="relative mt-1">
+                        <AudioSelector
+                            selectedAudio={selectedAudio}
+                            setSelectedAudio={setSelectedAudio}
+                            clearGraphData={() => setGraphData([])}
+                        />
+                    </div>
+                </div>
+
+                <ProcessButton
+                    selectedAudio={selectedAudio}
+                    setGraphData={setGraphData}
+                    loading={loading}
+                    setLoading={setLoading}
+                />
+                </div>
+            </div>
+        </div>
+
+        {/* <div className="p-4 space-y-4 mt-6 border-t pt-4">
           <AudioSelector
             selectedAudio={selectedAudio}
             setSelectedAudio={setSelectedAudio}
@@ -39,7 +93,7 @@ export default function Dashbordmain() {
             loading={loading}
             setLoading={setLoading}
           />
-        </div>
+        </div> */}
     </div>
   )
 }

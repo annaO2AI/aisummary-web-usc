@@ -210,7 +210,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, fileName }) => {
     isNaN(t) ? "00:00" : new Date(t * 1000).toISOString().substring(14, 19)
 
   return (
-    <div className="w-[225px] p-3 rounded-xl border border-gray-200 shadow-sm bg-white">
+    <div className="w-[225px] p-3 rounded-xl border border-gray-200 shadow-sm bg-white dashbord-main-audio-not">
       <audio ref={audioRef} src={correctedSrc} preload="metadata" />
 
       <div className="flex items-center space-x-2 px-2 py-2 rounded-xl border border-gray-100 shadow-inner bg-gray-50">

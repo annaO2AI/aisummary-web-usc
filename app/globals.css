@@ -21,6 +21,9 @@ body {
     background-clip: text;
     color: transparent;
   }
+  .ot-title{
+    color: #34334B;
+  }
   .osubtitle {
     color: #585E85;
   }
@@ -87,4 +90,11 @@ body {
     box-shadow: 0px 2px 10px #0000000d;
   }
 
+  /* handel dashbord main container */
+  .ot-dashbord-main-container .dashbord-miannot{
+    display: none;
+  }
+  .ot-min-h-screen{
+    min-height: calc(100vh - 170px);
+  }
 }
