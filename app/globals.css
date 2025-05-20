@@ -11,8 +11,9 @@ body {
 /* ✅ Custom utilities using @layer if needed */
 @layer utilities {
   .backround-chat-ui{
-    background-image: url(../public/bg-otwobg.png);
+    /* background-image: url(../public/bg-otwobg.png); */
     background-size:cover ;
+    background-color: #F4F8FB;
   }
   .otitle {
     /* color:#323232; */

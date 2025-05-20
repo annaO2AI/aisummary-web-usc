@@ -8,6 +8,7 @@ import {
   CallSummaryCard,
   CallCard,
   OSCard,
+  Dashbordmain
 } from "./dashboard/index"
 import { useDashboard } from "../context/DashboardContext"
 import SentimentScoreCard from "./dashboard/cards/SentimentScoreCard"
@@ -19,6 +20,9 @@ const Dashboard = () => {
   return (
     <>
       <div className="relative z-10 max-w-6xl mx-auto space-y-6">
+        {!loading && (
+           <Dashbordmain />
+        )}
         {loading && (
           <p className="mt-4 text-sm text-gray-500">
             Processing audio file. Please wait...
