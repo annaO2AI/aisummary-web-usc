@@ -26,7 +26,7 @@ export default function Dashbordmain() {
 
 
   return (
-    <div>
+    <div className="hidden">
         <div className="p-4 space-y-4 mt-6 border-t pt-4">
           <AudioSelector
             selectedAudio={selectedAudio}
