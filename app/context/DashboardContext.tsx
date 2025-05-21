@@ -55,8 +55,9 @@ type DashboardContextType = {
   setGraphData: (data: any) => void;
   loading: boolean;
   setLoading: (loading: boolean) => void;
-  hasProcessed: boolean; // Added hasProcessed
-  setHasProcessed: (hasProcessed: boolean) => void; // Added setHasProcessed
+  hasProcessed: boolean;
+  setHasProcessed: (hasProcessed: boolean) => void;
+  resetDashboard: () => void; // Added resetDashboard
 };
 
 const DashboardContext = createContext<DashboardContextType | undefined>(
@@ -67,7 +68,14 @@ export const DashboardProvider = ({ children }: { children: ReactNode }) => {
   const [selectedAudio, setSelectedAudio] = useState<string | null>(null);
   const [graphData, setGraphData] = useState<any>({});
   const [loading, setLoading] = useState(false);
-  const [hasProcessed, setHasProcessed] = useState(false); // New state
+  const [hasProcessed, setHasProcessed] = useState(false);
+
+  const resetDashboard = () => {
+    setGraphData({});
+    setSelectedAudio(null);
+    setLoading(false);
+    setHasProcessed(false); // Reset to show Dashboardmain
+  };
 
   return (
     <DashboardContext.Provider
@@ -78,8 +86,9 @@ export const DashboardProvider = ({ children }: { children: ReactNode }) => {
         setGraphData,
         loading,
         setLoading,
-        hasProcessed, // Added to provider
-        setHasProcessed, // Added to provider
+        hasProcessed,
+        setHasProcessed,
+        resetDashboard,
       }}
     >
       {children}
