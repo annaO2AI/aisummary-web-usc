@@ -108,14 +108,19 @@ import clsx from "clsx"; // For conditional class names
 
 const Dashboard = () => {
   const { graphData, loading, selectedAudio, hasProcessed, setHasProcessed, resetDashboard } = useDashboard();
-  console.log("annatest for graphData:", JSON.stringify(graphData, null, 2));
-  console.log("annatest for selectedAudio:", selectedAudio);
-  console.log("annatest for hasProcessed:", hasProcessed);
-  console.log("annatest for setHasProcessed:", typeof setHasProcessed);
+  // console.log("annatest for graphData:", JSON.stringify(graphData, null, 2));
+  // console.log("annatest for selectedAudio:", selectedAudio);
+  // console.log("annatest for hasProcessed:", hasProcessed);
+  // console.log("annatest for setHasProcessed:", typeof setHasProcessed);
 
   // Define conditions for clarity
-  const showDashboardMain = !loading && !hasProcessed && graphData?.sentiment_chunks?.length === 0;
+  const showDashboardMain = !loading && !hasProcessed && graphData?.sentiment_chunks?.length !== 0;
   const showAudioInsights = !loading && graphData?.sentiment_chunks?.length > 0;
+  console.log("annatest for showDashboardMain:", graphData?.sentiment_chunks?.length !== 0);
+  console.log("annatest for showDashboardMain1:", graphData?.sentiment_chunks?.length === 0);
+  console.log("annatest for showDashboardMain2:", graphData?.sentiment_chunks?.length);
+  console.log("annatest for showDashboardMain3:", !hasProcessed || graphData?.sentiment_chunks?.length !== 0);
+  console.log("annatest for showDashboardMain4:", !hasProcessed || graphData?.sentiment_chunks?.length === 0);
 
   return (
     <>
@@ -124,7 +129,7 @@ const Dashboard = () => {
         <div
           className={clsx(
             "transition-opacity duration-300",
-            showDashboardMain ? "opacity-100 block" : "opacity-0 hidden"
+            showDashboardMain ? "opacity-100 block Dashbordmain-main" : "opacity-0 hidden"
           )}
         >
           {showDashboardMain && (
@@ -145,7 +150,7 @@ const Dashboard = () => {
         <div
           className={clsx(
             "transition-opacity duration-300",
-            showAudioInsights ? "opacity-100 block" : "opacity-0 hidden"
+            showAudioInsights ? "opacity-100 block audio-insights-main" : "opacity-0 hidden"
           )}
         >
           {showAudioInsights && (
@@ -191,25 +196,27 @@ const Dashboard = () => {
                 </div>
               </div>
               {/* Optional Reset Button */}
-              <button
-                onClick={() => resetDashboard()}
-                className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-              >
-                Process New Audio
-              </button>
+              <div className="text-center">
+                <button
+                  onClick={() => resetDashboard()}
+                  className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                >
+                  Process New Audio
+                </button>
+              </div>
             </div>
           )}
         </div>
 
         {/* Fallback for no data after processing */}
         {!loading && hasProcessed && (!graphData || graphData?.sentiment_chunks?.length === 0) && (
-          <div>
+          <div className="text-center">
             <p className="mt-4 text-sm text-red-500">
               No data available. Please try processing another audio file.
             </p>
             <button
               onClick={() => resetDashboard()}
-              className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+              className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 "
             >
               Process New Audio
             </button>
