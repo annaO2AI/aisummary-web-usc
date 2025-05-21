@@ -16,11 +16,12 @@ import { SentimentScoreChart } from "./dashboard/SentimentScoreGauge"
 
 const Dashboard = () => {
   const { graphData, loading, selectedAudio } = useDashboard()
-  console.log(graphData)
+  console.log("annatest for graphDat" + graphData)
+  console.log("annatest for selectedAudio" + selectedAudio)
   return (
     <>
       <div className="relative z-10 max-w-6xl mx-auto space-y-6">
-        {!loading && graphData && (
+        {!loading && (!graphData || graphData?.sentiment_chunks?.length === 0) && (
            <Dashbordmain />
         )}
         {loading && (
