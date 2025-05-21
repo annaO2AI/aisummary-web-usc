@@ -100,19 +100,38 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {/* Box 1 */}
               <div className="bg-[#377dff] text-white rounded-lg py-6 px-4 flex flex-col items-center justify-center">
-                <img src="/AnalyzingData.svg" alt="Analyze" className="w-8 h-8 mb-2" />
+                 <Image
+                  src="/AnalyzingData.svg"
+                  alt="Mission Illustration"
+                  width={52}
+                  height={31}
+                  className="w-8 h-8 mb-2"
+                />
                 <span className="font-semibold text-lg">Analyzing Data</span>
               </div>
 
               {/* Box 2 */}
               <div className="bg-[#54c3ff] text-white rounded-lg py-6 px-4 flex flex-col items-center justify-center">
+                <Image
+                  src="/AnalyzingData.svg"
+                  alt="Mission Illustration"
+                  width={36}
+                  height={36}
+                  className="w-8 h-8 mb-2"
+                />
                 <img src="/AnalyzingData.svg" alt="Insights" className="w-8 h-8 mb-2" />
                 <span className="font-semibold text-lg">Collecting Insights</span>
               </div>
 
               {/* Box 3 */}
               <div className="bg-[#a365d6] text-white rounded-lg py-6 px-4 flex flex-col items-center justify-center">
-                <img src="/_AutomateTasks.svg" alt="Automate" className="w-8 h-8 mb-2" />
+                 <Image
+                  src="/_AutomateTasks.svg"
+                  alt="Mission Illustration"
+                  width={30}
+                  height={44}
+                  className="w-8 h-8 mb-2"
+                />
                 <span className="font-semibold text-lg">Automate Tasks</span>
               </div>
             </div>
