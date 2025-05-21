@@ -15,13 +15,14 @@ import SentimentScoreCard from "./dashboard/cards/SentimentScoreCard"
 import { SentimentScoreChart } from "./dashboard/SentimentScoreGauge"
 
 const Dashboard = () => {
-  const { graphData, loading, selectedAudio } = useDashboard()
+  const { graphData, loading, selectedAudio, hasProcessed, setHasProcessed } = useDashboard()
   console.log("annatest for graphDat" + graphData)
   console.log("annatest for selectedAudio" + selectedAudio)
+  console.log("annatest for hasProcessed:", hasProcessed);
   return (
     <>
       <div className="relative z-10 max-w-6xl mx-auto space-y-6">
-        {!loading && (!graphData || graphData?.sentiment_chunks?.length === 0) && (
+        {!loading && !hasProcessed && (
            <Dashbordmain />
         )}
         {loading && (

@@ -1,24 +1,73 @@
-"use client"
+// "use client"
 
-import { createContext, useContext, useState, ReactNode } from "react"
+// import { createContext, useContext, useState, ReactNode } from "react"
+
+// type DashboardContextType = {
+//   selectedAudio: string | null
+//   setSelectedAudio: (value: string | null) => void
+//   graphData: any
+//   setGraphData: (data: any) => void
+//   loading: boolean
+//   setLoading: (loading: boolean) => void
+// }
+
+// const DashboardContext = createContext<DashboardContextType | undefined>(
+//   undefined
+// )
+
+// export const DashboardProvider = ({ children }: { children: ReactNode }) => {
+//   const [selectedAudio, setSelectedAudio] = useState<string | null>(null)
+//   const [graphData, setGraphData] = useState<any>({})
+//   const [loading, setLoading] = useState(false)
+
+//   return (
+//     <DashboardContext.Provider
+//       value={{
+//         selectedAudio,
+//         setSelectedAudio,
+//         graphData,
+//         setGraphData,
+//         loading,
+//         setLoading,
+//       }}
+//     >
+//       {children}
+//     </DashboardContext.Provider>
+//   )
+// }
+
+// export const useDashboard = () => {
+//   const context = useContext(DashboardContext)
+//   if (!context) {
+//     throw new Error("useDashboard must be used within a DashboardProvider")
+//   }
+//   return context
+// }
+
+"use client";
+
+import { createContext, useContext, useState, ReactNode } from "react";
 
 type DashboardContextType = {
-  selectedAudio: string | null
-  setSelectedAudio: (value: string | null) => void
-  graphData: any
-  setGraphData: (data: any) => void
-  loading: boolean
-  setLoading: (loading: boolean) => void
-}
+  selectedAudio: string | null;
+  setSelectedAudio: (value: string | null) => void;
+  graphData: any;
+  setGraphData: (data: any) => void;
+  loading: boolean;
+  setLoading: (loading: boolean) => void;
+  hasProcessed: boolean; // Added hasProcessed
+  setHasProcessed: (hasProcessed: boolean) => void; // Added setHasProcessed
+};
 
 const DashboardContext = createContext<DashboardContextType | undefined>(
   undefined
-)
+);
 
 export const DashboardProvider = ({ children }: { children: ReactNode }) => {
-  const [selectedAudio, setSelectedAudio] = useState<string | null>(null)
-  const [graphData, setGraphData] = useState<any>({})
-  const [loading, setLoading] = useState(false)
+  const [selectedAudio, setSelectedAudio] = useState<string | null>(null);
+  const [graphData, setGraphData] = useState<any>({});
+  const [loading, setLoading] = useState(false);
+  const [hasProcessed, setHasProcessed] = useState(false); // New state
 
   return (
     <DashboardContext.Provider
@@ -29,17 +78,19 @@ export const DashboardProvider = ({ children }: { children: ReactNode }) => {
         setGraphData,
         loading,
         setLoading,
+        hasProcessed, // Added to provider
+        setHasProcessed, // Added to provider
       }}
     >
       {children}
     </DashboardContext.Provider>
-  )
-}
+  );
+};
 
 export const useDashboard = () => {
-  const context = useContext(DashboardContext)
+  const context = useContext(DashboardContext);
   if (!context) {
-    throw new Error("useDashboard must be used within a DashboardProvider")
+    throw new Error("useDashboard must be used within a DashboardProvider");
   }
-  return context
-}
+  return context;
+};
