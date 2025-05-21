@@ -16,11 +16,11 @@ import { SentimentScoreChart } from "./dashboard/SentimentScoreGauge"
 
 const Dashboard = () => {
   const { graphData, loading, selectedAudio } = useDashboard()
-
+  console.log(graphData)
   return (
     <>
       <div className="relative z-10 max-w-6xl mx-auto space-y-6">
-        {!loading && (
+        {!loading && graphData && (
            <Dashbordmain />
         )}
         {loading && (
