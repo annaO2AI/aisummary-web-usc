@@ -114,39 +114,19 @@ const Dashboard = () => {
   // console.log("annatest for setHasProcessed:", typeof setHasProcessed);
 
   // Define conditions for clarity
-  const showDashboardMain = !loading && !hasProcessed && graphData?.sentiment_chunks?.length !== 0;
+  const showDashboardMain = !loading && !hasProcessed;
   const showAudioInsights = !loading && graphData?.sentiment_chunks?.length > 0;
-  console.log("annatest for showDashboardMain:", graphData?.sentiment_chunks?.length !== 0);
-  console.log("annatest for showDashboardMain1:", graphData?.sentiment_chunks?.length === 0);
-  console.log("annatest for showDashboardMain2:", graphData?.sentiment_chunks?.length);
-  console.log("annatest for showDashboardMain3:", !hasProcessed || graphData?.sentiment_chunks?.length !== 0);
-  console.log("annatest for showDashboardMain4:", !hasProcessed || graphData?.sentiment_chunks?.length === 0);
+  // console.log("annatest for showDashboardMain:", graphData?.sentiment_chunks?.length !== 0);
+  // console.log("annatest for showDashboardMain1:", graphData?.sentiment_chunks?.length === 0);
+  // console.log("annatest for showDashboardMain2:", graphData?.sentiment_chunks?.length);
+  // console.log("annatest for showDashboardMain3:", !hasProcessed || graphData?.sentiment_chunks?.length !== 0);
+  // console.log("annatest for showDashboardMain4:", !hasProcessed || graphData?.sentiment_chunks?.length === 0);
 
   return (
     <>
       <div className="relative z-10 max-w-6xl mx-auto space-y-6">
         {/* Dashboardmain: Shown only initially */}
-        <div
-          className={clsx(
-            "transition-opacity duration-300",
-            showDashboardMain ? "opacity-100 block Dashbordmain-main" : "opacity-0 hidden"
-          )}
-        >
-          {showDashboardMain && (
-            <div>
-              <Dashbordmain />
-            </div>
-          )}
-        </div>
-
-        {/* Loading message */}
-        {loading && (
-          <p className="mt-4 text-sm text-gray-500">
-            Processing audio file. Please wait...
-          </p>
-        )}
-
-        {/* Audio Insights: Shown when data is available */}
+         {/* Audio Insights: Shown when data is available */}
         <div
           className={clsx(
             "transition-opacity duration-300",
@@ -207,6 +187,28 @@ const Dashboard = () => {
             </div>
           )}
         </div>
+
+        <div
+          className={clsx(
+            "transition-opacity duration-300",
+            showDashboardMain ? "opacity-100 block Dashbordmain-main" : "opacity-0 hidden"
+          )}
+        >
+          {showDashboardMain && (
+            <div>
+              <Dashbordmain />
+            </div>
+          )}
+        </div>
+        
+        {/* Loading message */}
+        {loading && (
+          <p className="mt-4 text-sm text-gray-500">
+            Processing audio file. Please wait...
+          </p>
+        )}
+
+       
 
         {/* Fallback for no data after processing */}
         {!loading && hasProcessed && (!graphData || graphData?.sentiment_chunks?.length === 0) && (

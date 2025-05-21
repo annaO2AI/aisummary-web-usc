@@ -106,4 +106,7 @@ body {
   .ot-min-h-screen{
     min-height: calc(100vh - 170px);
   }
+   .audio-insights-main  + .Dashbordmain-main{
+    display: none !important;
+  }
 }
