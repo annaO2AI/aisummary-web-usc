@@ -174,7 +174,7 @@ useEffect(() => {
                 <SentimentChart data={graphData?.sentiment_chunks} />
               </div>
               <SentimentScoreChart sentimentScore={graphData?.sentiment_score} />
-              <div className="flex flex-row gap-6 mb-6 mt-6">
+              <div className="flex flex-row gap-6  mt-6">
                 <div className="w-full">
                   <ActionItemsList
                     actionItems={graphData?.action_items ?? []}

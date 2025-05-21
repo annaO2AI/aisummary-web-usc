@@ -15,9 +15,9 @@ export default function SentimentScoreCard({ score }: SentimentScoreCardProps) {
         />
       </div>
 
-      <div className="text-[30px] font-bold">{score}/10</div>
+      <div className="font-medium text-[28px]">{score}/10</div>
 
-      <div className="text-[16px] opacity-90">Sentiment <br/>Score</div>
+      <div className="text-base opacity-90">Sentiment <br/>Score</div>
 
       {/* <img
         src="/stars.png"

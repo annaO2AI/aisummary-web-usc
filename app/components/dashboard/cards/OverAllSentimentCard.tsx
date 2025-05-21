@@ -39,10 +39,10 @@ export default function OSCard({ sentiment }: OSCardProps) {
       <div className="flex items-start space-x-2 mb-8 flex-col">
         <UserRound className="w-23 h-31" />
       </div>
-      <div className="font-semibold text-[30px] leading-[100%] mb-2" >
+      <div className="font-medium text-[28px] leading-[100%] mb-2" >
         {mappedSentiment}
       </div>
-      <div className="space-y-1 text-[16px]">
+      <div className="space-y-1 text-base">
         <span>Overall<br/> Sentiment</span>
       </div>
 
