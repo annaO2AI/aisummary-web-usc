@@ -15,9 +15,9 @@ export default function AboutPage() {
             <div>
               <h2 className="text-2xl md:text-2xl font-semibold  mb-4 ot-title">Vision</h2>
               <p className="text-gray-700 text-lg leading-relaxed">
-                At <span className="font-semibold text-gray-900">O2</span>, our vision is a world where AI will prompt and extend
+                At <span className="font-semibold text-gray-900">O2</span> our vision is a world where AI will prompt and extend
                 anthropoid cognition so institutions and individuals can live up to their potential. Technology seamlessly enhances
-                the individual's journey to well-being.
+                the individual journey to well-being.
               </p>
             </div>
 
@@ -119,7 +119,6 @@ export default function AboutPage() {
                   height={36}
                   className="w-8 h-8 mb-2"
                 />
-                <img src="/AnalyzingData.svg" alt="Insights" className="w-8 h-8 mb-2" />
                 <span className="font-semibold text-lg">Collecting Insights</span>
               </div>
 

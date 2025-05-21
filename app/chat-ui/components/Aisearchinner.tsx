@@ -10,7 +10,7 @@ import {
   LogIcon,
   EditIcon,
 } from "./icons"
-
+import Image from 'next/image';
 export default function Aisearchinner({ onSend }: { onSend: () => void }) {
   const [fileName, setFileName] = useState("")
   const [fileType, setFileType] = useState("")
@@ -45,7 +45,12 @@ export default function Aisearchinner({ onSend }: { onSend: () => void }) {
           <div className="flex flex-row justify-end w-full">
             <div className="flex flex-row items-top gap-4">
               <div className="">
-                <img src="/userAvtar.png" alt="Otow Logo" width={36} />
+                 <Image
+                    src="/userAvtar.png"
+                    alt="Otow Logo"
+                    width={36}
+                    height={36}
+                  />
               </div>
               <div className="bg-white border border-solid border-gray-100 p-6 text-base rounded-md relative">
                 <button className="absolute top-3 right-3 cursor-pointer">

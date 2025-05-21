@@ -58,13 +58,18 @@ export default function Header({ sidebarOpen }: HeaderProps) {
         sidebarOpen
           ? " w-[calc(100%-16rem)]"
           : pathname === "/"
-          ? " w-[calc(100%-4rem)]"
-          : "w-full"
+            ? " w-[calc(100%-4rem)]"
+            : "w-full"
       )}
     >
       <div className="w-full max-w-7xl mx-auto px-4 flex items-center justify-between">
         <Link href="/" className="text-2xl font-bold text-gray-900">
-          <img src="/Otow-log.svg" alt="Otow Logo" width={100} />
+          <Image
+            src="/Otow-log.svg"
+            alt="Otow Logo"
+            width={86}
+            height={49}
+          />
         </Link>
 
         <nav className="hidden md:flex space-x-6">
