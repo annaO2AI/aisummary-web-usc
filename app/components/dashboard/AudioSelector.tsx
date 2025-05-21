@@ -46,7 +46,7 @@ export default function AudioSelector({
       ) : (
         <div className="relative">
         <select
-          className="w-full h-[55px] appearance-none px-4 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full h-[45px] appearance-none px-4 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           onChange={(e) => {
             setSelectedAudio(e.target.value)
             clearGraphData()

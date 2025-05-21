@@ -30,9 +30,9 @@ export default function Dashbordmain() {
 
 
   return (
-    <div className="hidden ot-dashbord-main-container">
+    <div className="hidden-1 ot-dashbord-main-container">
          <div className="ot-min-h-screen flex items-center justify-center">
-            <div className="max-w-6xl w-full grid md:grid-cols-2 gap-10 items-center">
+            <div className="max-w-6xl w-full grid grid-cols-[40%_60%] gap-10 items-center">
                 {/* Illustration */}
                 <div className="flex justify-center">
                  <Image 
@@ -46,14 +46,14 @@ export default function Dashbordmain() {
 
                 {/* Content */}
                 <div className="space-y-6">
-                    <div className="flex flex-col items-left justify-center mb-4">
+                    <div className="flex flex-col items-left justify-center">
                         <LoganimationsIcon width={73} />
                         <div className="text-4xl font-bold w-2xl otitle mt-4 mb-4">
                            Hi there, John<br></br>
                            AI-Powered Call Summaries with
                            Sentiment Intelligence
                         </div>
-                        <p className="osubtitle text-base  mb-4">
+                        <p className="osubtitle text-base">
                             Instantly convert conversations into clear, actionable summaries. <br />
                             Understand emotions behind every word with intelligent sentiment analysis.
                         </p>

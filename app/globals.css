@@ -94,6 +94,15 @@ body {
   .ot-dashbord-main-container .dashbord-miannot{
     display: none;
   }
+   .ot-dashbord-main-container .dashordmain-custom-stylewrap{
+      justify-content: flex-start !important;
+      margin: 0 !important;
+  }
+  .ot-dashbord-main-container .dashordmain-custom-style{
+    width: 190px;
+    box-shadow: 0px 11px 19px #2563eb47;
+  }
+
   .ot-min-h-screen{
     min-height: calc(100vh - 170px);
   }
