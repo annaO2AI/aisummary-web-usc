@@ -10,7 +10,7 @@ export default function AboutPage() {
         <h1 className="max-w-6xl mx-auto pt-6 mt-6 text-xl font-semibold ot-title">About Us</h1>
       </section>
        <section className="py-6">
-          <div className="max-w-6xl mx-auto  bg-white rounded-2xl shadow-md p-12 grid  grid-cols-2 md:grid-cols-2 gap-2 items-center ">
+          <div className="max-w-6xl mx-auto  bg-white rounded-2xl boxshadow p-12 grid  grid-cols-2 md:grid-cols-2 gap-2 items-center ">
             {/* Text content */}
             <div>
               <h2 className="text-2xl md:text-2xl font-semibold  mb-4 ot-title">Vision</h2>
@@ -34,7 +34,7 @@ export default function AboutPage() {
           </div>
        </section>
        <section className="py-6">
-          <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-md p-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div className="max-w-6xl mx-auto bg-white rounded-2xl boxshadow p-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             {/* Illustration on left */}
             <div className="flex justify-center md:justify-center">
             <Image
@@ -58,7 +58,7 @@ export default function AboutPage() {
        <section className="py-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Card 1: AI Represents */}
-          <div className="bg-white rounded-2xl shadow-md p-6 flex items-center gap-4">
+          <div className="bg-white rounded-2xl boxshadow p-6 flex items-center gap-4">
             <LoganimationsIcon width={400} />
             <div>
               <h3 className="text-xl font-semibold text-gray-800 mb-2">AI represents</h3>
@@ -71,7 +71,7 @@ export default function AboutPage() {
           </div>
 
           {/* Card 2: Goal */}
-          <div className="bg-white rounded-2xl shadow-md p-6 flex items-center gap-4">
+          <div className="bg-white rounded-2xl boxshadow p-6 flex items-center gap-4">
              <Image
               src="/goal.png"
               alt="Mission Illustration"
