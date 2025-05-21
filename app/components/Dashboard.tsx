@@ -114,7 +114,7 @@ const Dashboard = () => {
   console.log("annatest for setHasProcessed:", typeof setHasProcessed);
 
   // Define conditions for clarity
-  const showDashboardMain = !loading && !hasProcessed;
+  const showDashboardMain = !loading && !hasProcessed && graphData?.sentiment_chunks?.length === 0;
   const showAudioInsights = !loading && graphData?.sentiment_chunks?.length > 0;
 
   return (
