@@ -25,7 +25,8 @@ body {
     color: #34334B;
   }
   .osubtitle {
-    color: #585E85;
+    color: #34334B;
+    opacity: 0.9;
   }
   .border-o2{
     border: 1px solid #d7d9dd; 
@@ -108,5 +109,12 @@ body {
   }
    .audio-insights-main  + .Dashbordmain-main{
     display: none !important;
+  }
+  .emailactivatbg{
+    background: #fff;
+    background: linear-gradient(134deg,rgb(236, 248, 248) 40%, rgb(250, 232, 232) 100%);
+  }
+  .emailBoder{
+    border: 1px solid rgb(185, 219, 235) ;
   }
 }

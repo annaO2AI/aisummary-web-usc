@@ -249,8 +249,8 @@ export default function SentimentScoreGauge({
   ]
 
   return (
-    <div className="bg-white rounded-xl shadow p-4 w-full max-w-md">
-      <h3 className="text-sm font-medium text-gray-700 mb-7">
+    <div className="bg-white rounded-xl shadow p-4 w-full max-w-md ">
+      <h3 className="text-xl font-medium  mb-7 ot-title">
         Overall Sentiment Score
       </h3>
       <ResponsiveContainer width="100%" height={100}>
@@ -325,10 +325,15 @@ export const SentimentScoreChart = ({
   }))
 
   return (
-    <div className="w-full  mx-auto p-4 rounded-2xl shadow bg-white">
-      <h2 className="text-xl font-semibold mb-4 text-gray-800">
-        Overall Sentiment Score
-      </h2>
+    <div className="w-full  mx-auto p-12 rounded-2xl boxshadow bg-white">
+      <div>
+        <h2 className="text-xl font-semibold ot-title">
+          Overall Sentiment Score
+        </h2>
+        <p className="text-base osubtitle ">
+          Measures customer and agent interaction quality on a scale of 1 to 10
+        </p>
+      </div>
 
       <ResponsiveContainer width="100%" height={150}>
         <BarChart

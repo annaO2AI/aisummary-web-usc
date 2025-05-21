@@ -129,7 +129,7 @@ useEffect(() => {
   
   return (
     <>
-      <div className="relative z-10 max-w-6xl mx-auto space-y-6">
+      <div className="relative z-10 max-w-7xl mx-auto space-y-6">
       
          {/* Audio Insights: Shown when data is available */}
         <div
@@ -140,7 +140,7 @@ useEffect(() => {
         >
           {showAudioInsights && (
             <div className="mt-6 pt-4 audio-insights-main">
-              <h1 className="text-2xl font-bold text-slate-800 mb-4 mt-6 pt-6">
+              <h1 className="text-2xl font-bold  mb-4 mt-6 pt-6 ot-title">
                 Audio Insights
               </h1>
               <div className="flex flex-row gap-6 mb-6">
@@ -161,14 +161,16 @@ useEffect(() => {
               <div className="w-full mb-6">
                 <SpeakerInsights speakerInsights={graphData?.speaker_insights} />
               </div>
-              <div className="flex flex-col gap-6">
-                <h2 className="text-xl font-semibold mb-2">
-                  Sentiment Over Time
-                </h2>
-                <p className="text-sm text-gray-500 mb-4">
-                  This chart shows the sentiment score over time based on the
-                  audio file selected.
-                </p>
+              <div className="flex flex-col gap-6 flex p-12 from-indigo-50 to-blue-50 boxshadow rounded-xl shadow-sm bg-white gap-10 mb-6">
+                <div>
+                  <h2 className="ot-title font-semibold text-xl">
+                    Sentiment Over Time
+                  </h2>
+                  <p className="text-base osubtitle">
+                    This chart shows the sentiment score over time based on the
+                    audio file selected.
+                  </p>
+                </div>
                 <SentimentChart data={graphData?.sentiment_chunks} />
               </div>
               <SentimentScoreChart sentimentScore={graphData?.sentiment_score} />

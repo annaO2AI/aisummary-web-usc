@@ -42,20 +42,20 @@ const SpeakerInsights = ({
       {insights.map(({ title, text, icon, color, src }, idx) => (
         <div
           key={idx}
-          className={`p-6 rounded-xl border boxshadow flex gap-8 ${color.bg} ${color}.border} `}
+          className={`p-12 rounded-xl border boxshadow flex gap-8 ${color.bg} ${color}.border} `}
         >
           <div>
             <Image
               src={src}
               alt="Customer Insights"
-              width={300}
+              width={250}
               height={57}
             />
 
           </div>
           <div>
             <div className="flex items-baseline">
-              <h3 className={`text-lg font-semibold ${color.title} mb-2`}>
+              <h3 className={`text-xl font-semibold ${color.title} mb-2`}>
                 {title}
               </h3>
             </div>
