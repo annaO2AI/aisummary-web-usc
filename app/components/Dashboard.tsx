@@ -99,33 +99,38 @@ import {
   CallSummaryCard,
   CallCard,
   OSCard,
+  ProgressBar,
   Dashbordmain // Corrected import
 } from "./dashboard/index";
 import { useDashboard } from "../context/DashboardContext";
 import SentimentScoreCard from "./dashboard/cards/SentimentScoreCard";
 import { SentimentScoreChart } from "./dashboard/SentimentScoreGauge";
 import clsx from "clsx"; // For conditional class names
+import { useEffect, useState } from "react";
 
 const Dashboard = () => {
   const { graphData, loading, selectedAudio, hasProcessed, setHasProcessed, resetDashboard } = useDashboard();
-  // console.log("annatest for graphData:", JSON.stringify(graphData, null, 2));
-  // console.log("annatest for selectedAudio:", selectedAudio);
-  // console.log("annatest for hasProcessed:", hasProcessed);
-  // console.log("annatest for setHasProcessed:", typeof setHasProcessed);
-
-  // Define conditions for clarity
   const showDashboardMain = !loading && !hasProcessed;
   const showAudioInsights = !loading && graphData?.sentiment_chunks?.length > 0;
-  // console.log("annatest for showDashboardMain:", graphData?.sentiment_chunks?.length !== 0);
-  // console.log("annatest for showDashboardMain1:", graphData?.sentiment_chunks?.length === 0);
-  // console.log("annatest for showDashboardMain2:", graphData?.sentiment_chunks?.length);
-  // console.log("annatest for showDashboardMain3:", !hasProcessed || graphData?.sentiment_chunks?.length !== 0);
-  // console.log("annatest for showDashboardMain4:", !hasProcessed || graphData?.sentiment_chunks?.length === 0);
+  const [progress, setProgress] = useState(0);
 
+useEffect(() => {
+  let timer: NodeJS.Timeout | undefined;
+  if (loading) {
+    setProgress(10);
+    timer = setInterval(() => {
+      setProgress((prev) => Math.min(prev + 80 / 60, 90));
+    }, 100);
+  } else {
+    setProgress(0);
+  }
+  return () => clearInterval(timer!);
+}, [loading]);
+  
   return (
     <>
       <div className="relative z-10 max-w-6xl mx-auto space-y-6">
-        {/* Dashboardmain: Shown only initially */}
+      
          {/* Audio Insights: Shown when data is available */}
         <div
           className={clsx(
@@ -187,7 +192,7 @@ const Dashboard = () => {
             </div>
           )}
         </div>
-
+        {/* Dashboardmain: Shown only initially */}
         <div
           className={clsx(
             "transition-opacity duration-300",
@@ -203,9 +208,9 @@ const Dashboard = () => {
         
         {/* Loading message */}
         {loading && (
-          <p className="mt-4 text-sm text-gray-500">
-            Processing audio file. Please wait...
-          </p>
+          <div className="mt-4 text-sm text-gray-500">
+            <ProgressBar progress={progress} />
+          </div>
         )}
 
        

@@ -68,7 +68,7 @@ export default function AudioSelector({
         </svg> */}
 
         <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1.10378 1.09419L5.82044 6.00739L10.5371 1.09419" stroke="#34334B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M1.10378 1.09419L5.82044 6.00739L10.5371 1.09419" stroke="#34334B" strokeWidth="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
 
       </div>
