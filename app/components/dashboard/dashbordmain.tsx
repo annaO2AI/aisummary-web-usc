@@ -10,6 +10,8 @@ import clsx from "clsx"
 import { AudioSelector, ProcessButton } from "./index"
 import { useDashboard } from "../../context/DashboardContext"
 import Image from 'next/image';
+import { useEffect, useState } from "react"
+import { decodeJWT } from "@/app/utils/decodeJWT"
 
 const navItems = [
   { label: "Home", icon: HomeIcon, href: "#" },
@@ -19,6 +21,8 @@ const navItems = [
 
 
 export default function Dashbordmain() {
+  const [username, setUsername] = useState<string | null>(null)
+  
   const {
     selectedAudio,
     setSelectedAudio,
@@ -26,8 +30,31 @@ export default function Dashbordmain() {
     setGraphData,
     loading,
     setLoading,
-  } = useDashboard()
+    
+  } = useDashboard();
 
+ useEffect(() => {
+    const cookies = document.cookie.split(";").map((c) => c.trim())
+    const token = cookies
+      .find((c) => c.startsWith("access_token="))
+      ?.split("=")[1]
+
+    if (token) {
+      const decoded = decodeJWT(token)
+      if (decoded?.name) {
+        setUsername(decoded.name)
+      }
+    }
+  }, [])
+
+  function getInitials(name: string): string {
+    if (!name) return ""
+    const parts = name.trim().split(" ")
+    if (parts.length === 1) return parts[0][0].toUpperCase()
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
+  }
+
+ const initials = username ? getInitials(username) : ""
 
   return (
     <div className="hidden-1 ot-dashbord-main-container">
@@ -49,7 +76,7 @@ export default function Dashbordmain() {
                     <div className="flex flex-col items-left justify-center">
                         <LoganimationsIcon width={73} />
                         <div className="text-4xl font-bold w-2xl otitle mt-4 mb-4">
-                           Hi there, John<br></br>
+                           Hi there, {username}<br></br>
                            AI-Powered Call Summaries with
                            Sentiment Intelligence
                         </div>
