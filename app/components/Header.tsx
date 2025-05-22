@@ -43,7 +43,7 @@ export default function Header({ sidebarOpen }: HeaderProps) {
         setUsername(decoded.name)
         console.log("Email decoded" + decoded)
       }
-      if (decoded?.Email) {
+      if (decoded?.email) {
         setUseremail(decoded.email)
       }
     }
