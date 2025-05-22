@@ -328,7 +328,7 @@ export const SentimentScoreChart = ({
     <div className="w-full  mx-auto p-12 rounded-2xl boxshadow bg-white">
       <div>
         <h2 className="text-xl font-semibold ot-title">
-          Overall Sentiment Score
+           Overall Call Sentiment Score
         </h2>
         <p className="text-base osubtitle ">
           Measures customer and agent interaction quality on a scale of 1 to 10

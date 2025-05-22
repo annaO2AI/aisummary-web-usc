@@ -9,7 +9,7 @@ export default function AboutPage() {
       <section className="text-left pt-6 mt-6">
         <h1 className="max-w-6xl mx-auto pt-6 mt-6 text-xl font-semibold ot-title">About Us</h1>
       </section>
-       <section className="py-6">
+       <section className="py-6 relative">
           <div className="max-w-6xl mx-auto  bg-white rounded-2xl boxshadow p-12 grid  grid-cols-2 md:grid-cols-2 gap-2 items-center ">
             {/* Text content */}
             <div>
@@ -32,6 +32,13 @@ export default function AboutPage() {
             />
             </div>
           </div>
+          <Image
+              src="/about-less.svg"
+              alt="About"
+              width={1040}
+              height={500}
+              className='absolute top-[8px] left-[352px]'
+            />
        </section>
        <section className="py-6">
           <div className="max-w-6xl mx-auto bg-white rounded-2xl boxshadow p-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">

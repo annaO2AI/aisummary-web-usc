@@ -164,7 +164,7 @@ useEffect(() => {
               <div className="flex flex-col gap-6 flex p-12 from-indigo-50 to-blue-50 boxshadow rounded-xl shadow-sm bg-white gap-10 mb-6">
                 <div>
                   <h2 className="ot-title font-semibold text-xl">
-                    Sentiment Over Time
+                   Call Sentiment Over Time
                   </h2>
                   <p className="text-base osubtitle">
                     This chart shows the sentiment score over time based on the
