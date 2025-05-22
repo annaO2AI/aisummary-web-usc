@@ -139,6 +139,7 @@ export default function Header({ sidebarOpen }: HeaderProps) {
           {/* <span className="text-gray-700 font-normal">Hi, {username}</span> */}
           <span className="text-gray-700 font-normal">
             Hi, {username || 'User'} {useAccess.role ? `(${useAccess.role})` : ''}
+            
           </span>
           <span className="hidden">{useremail}</span>
         </div>
