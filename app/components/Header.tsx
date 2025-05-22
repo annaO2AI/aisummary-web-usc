@@ -8,6 +8,8 @@ import Image from "next/image"
 import { User } from "lucide-react"
 import { decodeJWT } from "@/app/utils/decodeJWT"
 import { usePathname } from "next/navigation"
+import { API_ROUTES } from "../constants/api"
+import { fetchWithAuth } from "../utils/axios"
 
 type HeaderProps = {
   sidebarOpen: boolean
@@ -25,8 +27,11 @@ export default function Header({ sidebarOpen }: HeaderProps) {
   const pathname = usePathname()
   const [username, setUsername] = useState<string | null>(null)
   const [useremail, setUseremail] = useState<string | null>(null)
+  const [useAccess, setUseAccess] = useState<Record<string, string>>({})
+  const [loading, setLoading] = useState(true)
 
   const initials = username ? getInitials(username) : ""
+  
 
   useEffect(() => {
     const cookies = document.cookie.split(";").map((c) => c.trim())
@@ -54,6 +59,23 @@ export default function Header({ sidebarOpen }: HeaderProps) {
     window.addEventListener("scroll", onScroll)
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
+
+  useEffect(() => {
+      const fetchUseaccess = async () => {
+        try {
+           const res = await fetchWithAuth(API_ROUTES.useaccess+"?email="+useremail)
+          const data = await res.json()
+          setUseAccess(data)
+        } catch (err) {
+          console.error("Failed to load audio files:", err)
+        } finally {
+          setLoading(false)
+        }
+      }
+  
+      fetchUseaccess()
+    }, [])
+  
 
   return (
     <header
@@ -114,7 +136,10 @@ export default function Header({ sidebarOpen }: HeaderProps) {
               </div>
             )}
           </div>
-          <span className="text-gray-700 font-normal">Hi, {username}</span>
+          {/* <span className="text-gray-700 font-normal">Hi, {username}</span> */}
+          <span className="text-gray-700 font-normal">
+            Hi, {username || 'User'} {useAccess.role ? `(${useAccess.role})` : ''}
+          </span>
           <span className="hidden">{useremail}</span>
         </div>
       </div>
