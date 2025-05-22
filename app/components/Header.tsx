@@ -36,12 +36,15 @@ export default function Header({ sidebarOpen }: HeaderProps) {
 
     if (token) {
       const decoded = decodeJWT(token)
-      console.log("Email decoded" + decoded)
+      if (decoded) {
+        console.log('Decoded JWT:', decoded);
+      }
       if (decoded?.name) {
         setUsername(decoded.name)
+        console.log("Email decoded" + decoded)
       }
       if (decoded?.Email) {
-        setUseremail(decoded.Email)
+        setUseremail(decoded.email)
       }
     }
   }, [])
