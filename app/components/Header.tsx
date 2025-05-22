@@ -24,6 +24,7 @@ export default function Header({ sidebarOpen }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
   const [username, setUsername] = useState<string | null>(null)
+  const [useremail, setUseremail] = useState<string | null>(null)
 
   const initials = username ? getInitials(username) : ""
 
@@ -35,8 +36,10 @@ export default function Header({ sidebarOpen }: HeaderProps) {
 
     if (token) {
       const decoded = decodeJWT(token)
+      console.log()
       if (decoded?.name) {
         setUsername(decoded.name)
+        setUseremail(decoded.email_sent)
       }
     }
   }, [])
@@ -107,6 +110,7 @@ export default function Header({ sidebarOpen }: HeaderProps) {
             )}
           </div>
           <span className="text-gray-700 font-normal">Hi, {username}</span>
+          <span className="hidden">{useremail}</span>
         </div>
       </div>
     </header>
