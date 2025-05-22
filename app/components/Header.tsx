@@ -63,7 +63,8 @@ export default function Header({ sidebarOpen }: HeaderProps) {
   useEffect(() => {
       const fetchUseaccess = async () => {
         try {
-           const res = await fetchWithAuth(API_ROUTES.useaccess+"?email="+useremail)
+          // const res = await fetchWithAuth(API_ROUTES.useaccess+"?email="+useremail)
+          const res = await fetchWithAuth(`${API_ROUTES.useaccess}?email=${useremail}`)
           const data = await res.json()
           setUseAccess(data)
         } catch (err) {
