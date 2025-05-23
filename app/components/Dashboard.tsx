@@ -129,7 +129,7 @@ useEffect(() => {
   
   return (
     <>
-      <div className="relative z-10 max-w-7xl mx-auto space-y-6">
+      <div className="relative z-0 max-w-7xl mx-auto space-y-6">
       
          {/* Audio Insights: Shown when data is available */}
         <div
@@ -159,7 +159,7 @@ useEffect(() => {
                 <CallSummaryCard summary={graphData?.call_summary} />
               </div>
               <div className="w-full mb-6">
-                <SpeakerInsights speakerInsights={graphData?.speaker_insights} />
+                <SpeakerInsights speakerInsights={graphData?.speaker_insights} agentRating={graphData?.Agent_rating} />
               </div>
               <div className="flex flex-col gap-6 flex p-12 from-indigo-50 to-blue-50 boxshadow rounded-xl shadow-sm bg-white gap-10 mb-6">
                 <div>

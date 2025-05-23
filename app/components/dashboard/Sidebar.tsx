@@ -44,7 +44,7 @@ export default function Sidebar({
       // onMouseEnter={() => setHovered(true)}
       // onMouseLeave={() => setHovered(false)}
       className={clsx(
-        "h-screen fixed top-0 left-0 bg-white border-r shadow z-40 transition-all duration-300 ease-in-out",
+        "h-screen fixed top-0 left-0 bg-white border-r shadow transition-all duration-300 ease-in-out",
         isExpanded ? "w-64" : "w-16"
       )}
     >

@@ -262,7 +262,7 @@ export default function Header({ sidebarOpen }: HeaderProps) {
   return (
     <header
       className={clsx(
-        "fixed top-0 z-50 transition-all duration-300 h-18 flex items-center",
+        "fixed top-0 z-10 transition-all duration-300 h-18 flex items-center",
         "backdrop-blur-xl supports-[backdrop-filter]:bg-white/60",
         scrolled
           ? "shadow-md border-b border-white/30"
@@ -311,7 +311,7 @@ export default function Header({ sidebarOpen }: HeaderProps) {
             )}
           </div>
           <span className="text-gray-700 font-normal">
-            Hi, {username || 'User'} {useAccess.role ? `(${useAccess.role})` : loading ? '(Loading...)' : ''}
+            Hi, {username || 'User'} {useAccess.role ? `(${useAccess.role})` : loading ? '(...)' : ''}
           </span>
           <span className="hidden">{useremail}</span>
         </div>

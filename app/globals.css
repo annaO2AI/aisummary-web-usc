@@ -117,4 +117,12 @@ body {
   .emailBoder{
     border: 1px solid rgb(185, 219, 235) ;
   }
+  .o2-agent-shadow
+  {
+        box-shadow: 0px 0px 15px #1d1f2742;
+  }
+  .ot-customline{
+    height: 1px;
+    border-bottom: 1px dotted #d7d9dd;
+  }
 }
