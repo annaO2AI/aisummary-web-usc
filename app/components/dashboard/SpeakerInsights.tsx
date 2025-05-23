@@ -108,7 +108,7 @@ const SpeakerInsights = ({
             </div>
             <p className="text-green-700">{speakerInsights.Customer}</p>
             <button className="mt-4 px-4 py-2 bg-green-700 text-white rounded hover:bg-green-800" onClick={CustomerButtonClick}>
-              Customer Insights
+              View Details
             </button>
             <PopupModal isOpen={customerisOpen} onClose={customerClose}>
               <div className="p-12">
@@ -193,7 +193,7 @@ const SpeakerInsights = ({
             </div>
             <p >{speakerInsights.Agent}</p>
             <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" onClick={AgentButtonClick}>
-              Agent Insights
+              View Details
             </button>
             <PopupModal isOpen={agentisOpen} onClose={agentClose}>
               <div className="p-12">
@@ -214,20 +214,14 @@ const SpeakerInsights = ({
                 {/* Customer: Peter Section */}
                 <div className="flex items-start mb-6 gap-12">
                   <div className="flex-1 w-[65%] pl-12 ml-10">
-                    <p className="text-gray-600 mb-2">
+                    <p className="text-gray-600 mb-3">
                       {speakerInsights.Agent}
                     </p>
-                    <div className="mt-6">
+                    <div className="mt-6 pb-4">
                       <div className="flex items-center  gap-2">
                         <h3 className="text-lg font-medium text-gray-700">Agent Rating </h3>
                       </div>
                       <div className="flex items-center gap-3 rounded-lg">
-                        {/* <Image
-                            src="/agentRating.svg"
-                            alt="Customer Illustration"
-                            width={389}
-                            height={81}
-                        /> */}
                         <AgentRating rating={agentRating} /> {/* Pass agentRating */}
                       </div>
                     </div>

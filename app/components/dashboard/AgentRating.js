@@ -32,7 +32,7 @@ const AgentRating = ({ rating = 9 }) => {
           </div>
         ))}
       </div>
-      <div className="flex justify-between items-center text-gray-500 text-sm">
+      <div className="flex justify-between items-center text-gray-500 text-sm mt-3">
         <span>0: Needs Improvement </span>
         <span className='w-[50%] ot-customline relative'></span>
         <span>10: Excellent</span>
