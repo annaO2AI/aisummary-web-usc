@@ -155,7 +155,7 @@ useEffect(() => {
                 <CallSummaryCard summary={graphData?.call_summary} />
               </div>
               <div className="w-full mb-6">
-                <SpeakerInsights speakerInsights={graphData?.speaker_insights} agentRating={graphData?.Agent_rating} />
+                <SpeakerInsights speakerInsights={graphData?.speaker_insights} agentRating={graphData?.Agent_rating} role={useAccess.role} />
               </div>
               <div className="flex flex-col gap-6 flex p-12 from-indigo-50 to-blue-50 boxshadow rounded-xl shadow-sm bg-white gap-10 mb-6">
                 <div>
@@ -248,7 +248,7 @@ useEffect(() => {
                 <CallSummaryCard summary={graphData?.call_summary} />
               </div>
               <div className="w-full mb-6">
-                <SpeakerInsights speakerInsights={graphData?.speaker_insights} agentRating={graphData?.Agent_rating} />
+                <SpeakerInsights speakerInsights={graphData?.speaker_insights} agentRating={graphData?.Agent_rating} role={useAccess.role} />
               </div>
               <div className="flex flex-row gap-6  mt-6">
                 <div className="w-full">

@@ -8,9 +8,11 @@ import AgentRating from './AgentRating';
 const SpeakerInsights = ({
   speakerInsights,
   agentRating, // Add agentRating as a prop
+  role,
 }: {
   speakerInsights: { Customer: string; Agent: string };
   agentRating: number;
+  role: string;
 }) => {
   const colorStyles = {
     green: {
@@ -107,9 +109,11 @@ const SpeakerInsights = ({
               </h3>
             </div>
             <p className="text-green-700">{speakerInsights.Customer}</p>
-            <button className="mt-4 px-4 py-2 bg-green-700 text-white rounded hover:bg-green-800" onClick={CustomerButtonClick}>
-              View Details
-            </button>
+            {role === "Admin" && (
+              <button className="mt-4 px-4 py-2 bg-green-700 text-white rounded hover:bg-green-800" onClick={CustomerButtonClick}>
+                View Details
+              </button>
+            )}
             <PopupModal isOpen={customerisOpen} onClose={customerClose}>
               <div className="p-12">
                 {/* Header Section */}
@@ -192,9 +196,11 @@ const SpeakerInsights = ({
               </div>
             </div>
             <p >{speakerInsights.Agent}</p>
-            <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" onClick={AgentButtonClick}>
-              View Details
-            </button>
+            {role === "Admin" && (
+              <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" onClick={AgentButtonClick}>
+                View Details
+              </button>
+            )}
             <PopupModal isOpen={agentisOpen} onClose={agentClose}>
               <div className="p-12">
                 {/* Header Section */}
