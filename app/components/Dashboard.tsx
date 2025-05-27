@@ -121,7 +121,7 @@ useEffect(() => {
   return (
     <>
     {/* Admin container  dashboard */}
-      {useAccess.role === "admin" && (
+      {useAccess.role === "Admin" && (
       <div className="relative z-0 max-w-7xl mx-auto space-y-6">
       
          {/* Audio Insights: Shown when data is available */}
@@ -229,7 +229,7 @@ useEffect(() => {
       </div>
       )}
       {/* User container  dashboard */}
-      {useAccess.role === "user" && (
+      {useAccess.role === "User" && (
       <div className="relative z-0 max-w-7xl mx-auto space-y-6">
       
         {/* Audio Insights: Shown when data is available */}
