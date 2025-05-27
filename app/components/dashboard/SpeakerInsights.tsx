@@ -187,7 +187,7 @@ const SpeakerInsights = ({
           </div>
           <div>
             <div className="flex items-baseline pb-3 justify-between">
-              <h3 className="text-xl font-semibold  mb-2">
+              <h3 className="text-xl font-semibold  mb-2 text-blue-700">
                 Agent Insights
               </h3>
               <div className="flex gap-2 items-center ">
@@ -195,7 +195,7 @@ const SpeakerInsights = ({
                 <div className=" flex text text-center justify-center items-center p-3 bg-blue-500 text-white w-[40px] h-[40px] rounded text-2xl font-bold">{agentRating}</div>
               </div>
             </div>
-            <p >{speakerInsights.Agent}</p>
+            <p className="text-blue-700">{speakerInsights.Agent}</p>
             {role === "Admin" && (
               <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" onClick={AgentButtonClick}>
                 View Details
