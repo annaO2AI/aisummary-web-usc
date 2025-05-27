@@ -136,9 +136,9 @@ useEffect(() => {
               <h1 className="text-2xl font-bold  mb-4 mt-6 pt-6 ot-title">
                 Audio Insights
               </h1>
-               <span className="text-gray-700 font-normal">
+               {/* <span className="text-gray-700 font-normal">
                   Hi, {username || 'User'} {useAccess.role ? `(${useAccess.role})` : loadinguse ? '(...)' : ''}
-              </span>
+              </span> */}
               <div className="flex flex-row gap-6 mb-6">
                 <CallCard
                   audioId={selectedAudio || ""}
