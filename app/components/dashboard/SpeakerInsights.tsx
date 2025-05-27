@@ -105,7 +105,7 @@ const SpeakerInsights = ({
           <div>
             <div className="flex items-baseline ">
               <h3 className="text-xl font-semibold  mb-2  text-green-700  pb-3">
-                Customer Insights
+                Customer Call Insights
               </h3>
             </div>
             <p className="text-green-700">{speakerInsights.Customer}</p>
@@ -125,7 +125,7 @@ const SpeakerInsights = ({
                       height={70}
                    />
                   <div>
-                    <h2 className="text-xl font-semibold  ot-title">Customer Insights</h2>
+                    <h2 className="text-xl font-semibold  ot-title">Customer Call Insights</h2>
                     <h3 className="text-base mb-2 osubtitle ">Customer:</h3>
                   </div>
                 </div>
@@ -188,7 +188,7 @@ const SpeakerInsights = ({
           <div>
             <div className="flex items-baseline pb-3 justify-between">
               <h3 className="text-xl font-semibold  mb-2 text-blue-700">
-                Agent Insights
+                Agent Call Insights
               </h3>
               <div className="flex gap-2 items-center ">
                 <div className="osubtitle">Agent Rating :</div>

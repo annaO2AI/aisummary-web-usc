@@ -63,7 +63,7 @@ export default function Dashbordmain() {
                 {/* Illustration */}
                 <div className="flex justify-center">
                  <Image 
-                    src="/dashboard-main.svg" 
+                    src="/dashboard-main1.svg" 
                     alt="I Call Summary Illustration" 
                     width={349} 
                     height={282} 
@@ -76,7 +76,7 @@ export default function Dashbordmain() {
                     <div className="flex flex-col items-left justify-center">
                         <LoganimationsIcon width={73} />
                         <div className="text-4xl font-bold w-2xl otitle mt-4 mb-4">
-                           Hi there, {username}<br></br>
+                           Hi, {username}<br></br>
                            AI-Powered Call Summaries with
                            Sentiment Intelligence
                         </div>
