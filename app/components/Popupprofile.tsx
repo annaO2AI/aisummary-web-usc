@@ -13,6 +13,7 @@ export default function Popupprofile() {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center backdivbgProfile">
+      <div className="fixed backclose" onClick={closePopup}></div>
       <div
         className="bg-white p-12 rounded-xl shadow-2xl w-[50%] relative z-50 "
         role="dialog"
@@ -20,12 +21,14 @@ export default function Popupprofile() {
       >
         <button
           onClick={closePopup}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
+          className="absolute top-4 right-4 text-gray-700 hover:text-gray-800"
         >
-          <CloseIcon width={36} />
+          ✖
+          {/* <CloseIcon width={36} /> */}
         </button>
         <ProfileCard /> 
       </div>
+     
     </div>
   )
 }

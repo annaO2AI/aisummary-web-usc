@@ -11,6 +11,7 @@ const PopupModal: React.FC<PopupModalProps> = ({ isOpen, onClose, children }) =>
 
   return (
     <div style={styles.overlay} className="z-30 backdivbg">
+       <div className="fixed backclose" onClick={onClose}></div>
       <div style={styles.modal} className="shadow-xl rounded-xl border-o3 w-[70%]">
         <button style={styles.closeButton} onClick={onClose}>✖</button>
         {children}
