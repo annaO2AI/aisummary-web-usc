@@ -162,6 +162,7 @@ import { decodeJWT } from "@/app/utils/decodeJWT"
 import { usePathname } from "next/navigation"
 import { API_ROUTES } from "../constants/api"
 import { fetchWithAuth } from "../utils/axios"
+import { useAISearch } from "../context/AISearchContext"
 
 type HeaderProps = {
   sidebarOpen: boolean
@@ -181,6 +182,7 @@ export default function Header({ sidebarOpen }: HeaderProps) {
   const [useremail, setUseremail] = useState<string | null>(null)
   const [useAccess, setUseAccess] = useState<Record<string, string>>({})
   const [loading, setLoading] = useState(true)
+  const { openPopup } = useAISearch()
 
   const initials = username ? getInitials(username) : ""
 
@@ -302,7 +304,7 @@ export default function Header({ sidebarOpen }: HeaderProps) {
           </Link>
         </nav>
 
-        <div className="flex items-center space-x-2">
+        <button className="flex items-center space-x-2" onClick={openPopup}>
           <div className="w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center">
             {initials && (
               <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-normal text-sm">
@@ -315,7 +317,7 @@ export default function Header({ sidebarOpen }: HeaderProps) {
              Hi, {username || 'User'}
           </span>
           <span className="hidden">{useremail}</span>
-        </div>
+        </button>
       </div>
     </header>
   )

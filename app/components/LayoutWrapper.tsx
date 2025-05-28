@@ -9,6 +9,7 @@ import Footer from "./Footer"
 import FooterAISearch from "../chat-ui/components/Footer"
 import { DashboardProvider } from "../context/DashboardContext"
 import PopupComponent from "../chat-ui/components/PopupComponent"
+import Popupprofile from "../components/Popupprofile"
 
 export default function LayoutWrapper({ children }: { children: ReactNode }) {
   const pathname = usePathname()
@@ -56,7 +57,10 @@ export default function LayoutWrapper({ children }: { children: ReactNode }) {
               <PopupComponent />
             </>
           ) : (
-            <Header sidebarOpen={showSidebar && isSidebarExpanded} />
+            <>
+              <Header sidebarOpen={showSidebar && isSidebarExpanded} />
+              <Popupprofile />
+            </>
           )}
           <main
             className={`flex-1 ${isAltLayout}?mt-1:mt-16 overflow-auto p-6 backround-chat-ui`}
