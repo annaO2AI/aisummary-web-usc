@@ -287,18 +287,27 @@ export default function Header({ sidebarOpen }: HeaderProps) {
         </Link>
 
         <nav className="hidden md:flex space-x-6">
-          <Link href="/" className="text-gray-700 hover:text-black transition">
+          <Link
+            href="/"
+            className={`transition ${
+              pathname === "/" ? "ot-title font-semibold activenavigation py-2 px-3 rounded-md" : "text-gray-700 hover:ot-title py-2 px-3 rounded-md"
+            }`}
+          >
             Call Summary
           </Link>
           <Link
             href="/about"
-            className="text-gray-700 hover:text-black transition"
+            className={`transition ${
+              pathname === "/about" ? "ot-title font-semibold activenavigation py-2 px-3 rounded-md" : "text-gray-700 hover:ot-title py-2 px-3 rounded-md"
+            }`}
           >
             About
           </Link>
           <Link
             href="/contact"
-            className="text-gray-700 hover:text-black transition"
+            className={`transition ${
+              pathname === "/contact" ? "ot-title font-semibold activenavigation py-2 px-3 rounded-md" : "text-gray-700 hover:ot-title py-2 px-3 rounded-md"
+            }`}
           >
             Contact
           </Link>

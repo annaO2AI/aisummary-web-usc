@@ -138,4 +138,19 @@ body {
     top: 0;
     left: 0;
   }
+  .activenavigation{
+    position: relative;
+    background-color: #D9E5FC;
+  }
+  .activenavigation::after{
+    content: "";
+    height: 2.5px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -17px;
+    display: block;
+    background-color: #3C77EF;
+    border-radius: 10px;
+  }
 }
