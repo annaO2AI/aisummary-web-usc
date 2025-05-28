@@ -1,5 +1,8 @@
+"use client";
+
 import React, { useEffect, useState } from 'react';
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { API_ROUTES } from "../../constants/api";
 import { fetchWithAuth } from "../../utils/axios";
 import { decodeJWT } from "@/app/utils/decodeJWT";
@@ -17,6 +20,7 @@ const ProfileCard: React.FC = () => {
   const [useremail, setUseremail] = useState<string | null>(null);
   const [useAccess, setUseAccess] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   const initials = firstName ? getInitials(firstName, lastName || "") : "";
 
@@ -47,10 +51,10 @@ const ProfileCard: React.FC = () => {
       const fullName = decoded.name.trim();
       const nameParts = fullName.split(" ");
       if (nameParts.length > 1) {
-        setFirstName(nameParts[0]); // First part as first name
-        setLastName(nameParts[nameParts.length - 1]); // Last part as last name
+        setFirstName(nameParts[0]);
+        setLastName(nameParts[nameParts.length - 1]);
       } else {
-        setFirstName(fullName); // If only one part, set it as first name
+        setFirstName(fullName);
         setLastName(null);
       }
       console.log("First name set:", nameParts[0]);
@@ -103,6 +107,17 @@ const ProfileCard: React.FC = () => {
 
     fetchUseaccess();
   }, [useremail]);
+
+  const handleLogout = () => {
+    // Show confirmation dialog
+    const confirmLogout = window.confirm("Are you sure you want to log out?");
+    if (confirmLogout) {
+      // Clear the access token cookie
+      document.cookie = "access_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; secure; samesite=strict";
+      // Redirect to the root path, middleware will handle the redirect to login
+      router.replace("https://aisummary-api-usc-geemebfqfmead8f4.centralus-01.azurewebsites.net");
+    }
+  };
 
   return (
     <div className="mx-auto p-6 bg-white rounded-lg">
@@ -163,15 +178,29 @@ const ProfileCard: React.FC = () => {
               </button>
             </div>
             <div className="flex items-center justify-between p-4 rounded-lg">
-                <div>
-                    <p className="text-gray-800 font-medium">Log out on O2.ai</p>
-                </div>
-                <button className="flex items-center px-4 py-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition">
-                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 11V7a4 4 0 118 0v4m-8 0h8m-8 0H6a2 2 0 00-2 2v6a2 2 0 002 2h12a2 2 0 002-2v-6a2 2 0 00-2-2h-2"></path>
-                    </svg>
-                    Log Out
-                </button>
+              <div>
+                <p className="text-gray-800 font-medium">Log out on O2.ai</p>
+              </div>
+              <button
+                onClick={handleLogout}
+                className="flex items-center px-4 py-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition"
+              >
+                <svg
+                  className="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M8 11V7a4 4 0 118 0v4m-8 0h8m-8 0H6a2 2 0 00-2 2v6a2 2 0 002 2h12a2 2 0 002-2v-6a2 2 0 00-2-2h-2"
+                  ></path>
+                </svg>
+                Log Out
+              </button>
             </div>
           </div>
         </div>
