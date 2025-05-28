@@ -12,9 +12,9 @@ export default function Popupprofile() {
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center backdivbgProfile">
       <div
-        className="bg-white p-12 rounded-xl shadow-2xl w-[50%] relative z-50"
+        className="bg-white p-12 rounded-xl shadow-2xl w-[50%] relative z-50 "
         role="dialog"
         aria-modal="true"
       >

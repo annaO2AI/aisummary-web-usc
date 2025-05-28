@@ -32,7 +32,7 @@ const Dashboard = () => {
   const [username, setUsername] = useState<string | null>(null)
   const [useremail, setUseremail] = useState<string | null>(null)
   const [useAccess, setUseAccess] = useState<Record<string, string>>({})
- const [loadinguse, setLoading] = useState(true)
+  const [loadinguse, setLoading] = useState(true)
 
   useEffect(() => {
     const cookies = document.cookie.split(";").map((c) => c.trim())
@@ -142,7 +142,7 @@ useEffect(() => {
               <div className="flex flex-row gap-6 mb-6">
                 <CallCard
                   audioId={selectedAudio || ""}
-                  customerName=""
+                  customerName={graphData?.Customer_name || ""}
                   agentName=""
                 />
                 <OSCard sentiment={graphData?.sentiment_score.toString()} />
@@ -155,7 +155,7 @@ useEffect(() => {
                 <CallSummaryCard summary={graphData?.call_summary} />
               </div>
               <div className="w-full mb-6">
-                <SpeakerInsights speakerInsights={graphData?.speaker_insights} agentRating={graphData?.Agent_rating} role={useAccess.role} />
+                <SpeakerInsights speakerInsights={graphData?.speaker_insights} agentRating={graphData?.Agent_rating} role={useAccess.role} customerName={graphData?.Customer_name || ""} />
               </div>
               <div className="flex flex-col gap-6 flex p-12 from-indigo-50 to-blue-50 boxshadow rounded-xl shadow-sm bg-white gap-10 mb-6">
                 <div>

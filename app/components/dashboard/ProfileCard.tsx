@@ -137,7 +137,7 @@ const ProfileCard: React.FC = () => {
             <div>
               <p className="text-gray-500">Role</p>
               <p className="text-gray-800 font-medium">
-                {useAccess.role ? `(${useAccess.role})` : loading ? "(...)" : ""}
+                {useAccess.role ? `${useAccess.role}` : loading ? "(...)" : ""}
               </p>
             </div>
           </div>
@@ -161,6 +161,17 @@ const ProfileCard: React.FC = () => {
               <button className="px-4 py-2 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition">
                 Enable
               </button>
+            </div>
+            <div className="flex items-center justify-between p-4 rounded-lg">
+                <div>
+                    <p className="text-gray-800 font-medium">Log out on O2.ai</p>
+                </div>
+                <button className="flex items-center px-4 py-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition">
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 11V7a4 4 0 118 0v4m-8 0h8m-8 0H6a2 2 0 00-2 2v6a2 2 0 002 2h12a2 2 0 002-2v-6a2 2 0 00-2-2h-2"></path>
+                    </svg>
+                    Log Out
+                </button>
             </div>
           </div>
         </div>

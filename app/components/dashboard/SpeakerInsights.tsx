@@ -9,10 +9,12 @@ const SpeakerInsights = ({
   speakerInsights,
   agentRating, // Add agentRating as a prop
   role,
+  customerName
 }: {
   speakerInsights: { Customer: string; Agent: string };
   agentRating: number;
   role: string;
+  customerName:string;
 }) => {
   const colorStyles = {
     green: {
@@ -126,7 +128,7 @@ const SpeakerInsights = ({
                    />
                   <div>
                     <h2 className="text-xl font-semibold  ot-title">Customer Call Insights</h2>
-                    <h3 className="text-base mb-2 osubtitle ">Customer:</h3>
+                    <h3 className="text-base mb-2 osubtitle ">Customer: <span>{customerName}</span></h3>
                   </div>
                 </div>
 

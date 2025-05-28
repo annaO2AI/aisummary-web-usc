@@ -23,7 +23,8 @@ export default function CallCard({
       <div className="space-y-1 text-sm">
         <div className="flex items-center space-x-2">
           <User className="w-4 h-4" />
-          <span>Customer</span>
+          <span>Customer:</span>
+          <span>{customerName}</span>
         </div>
         <div className="flex items-center space-x-2">
           <User className="w-4 h-4" />
