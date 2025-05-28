@@ -286,11 +286,11 @@ export default function Header({ sidebarOpen }: HeaderProps) {
           />
         </Link>
 
-        <nav className="hidden md:flex space-x-6">
+        <nav className="hidden md:flex space-x-3">
           <Link
             href="/"
             className={`transition ${
-              pathname === "/" ? "ot-title font-semibold activenavigation py-2 px-3 rounded-md" : "text-gray-700 hover:ot-title py-2 px-3 rounded-md"
+              pathname === "/" ? "ot-title font-semibold activenavigation py-2 px-4 rounded-md" : "text-gray-700 hover:ot-title py-2 px-4 rounded-md"
             }`}
           >
             Call Summary
@@ -298,7 +298,7 @@ export default function Header({ sidebarOpen }: HeaderProps) {
           <Link
             href="/about"
             className={`transition ${
-              pathname === "/about" ? "ot-title font-semibold activenavigation py-2 px-3 rounded-md" : "text-gray-700 hover:ot-title py-2 px-3 rounded-md"
+              pathname === "/about" ? "ot-title font-semibold activenavigation py-2 px-4 rounded-md" : "text-gray-700 hover:ot-title py-2 px-4 rounded-md"
             }`}
           >
             About
@@ -306,7 +306,7 @@ export default function Header({ sidebarOpen }: HeaderProps) {
           <Link
             href="/contact"
             className={`transition ${
-              pathname === "/contact" ? "ot-title font-semibold activenavigation py-2 px-3 rounded-md" : "text-gray-700 hover:ot-title py-2 px-3 rounded-md"
+              pathname === "/contact" ? "ot-title font-semibold activenavigation py-2 px-4 rounded-md" : "text-gray-700 hover:ot-title py-2 px-4 rounded-md"
             }`}
           >
             Contact
