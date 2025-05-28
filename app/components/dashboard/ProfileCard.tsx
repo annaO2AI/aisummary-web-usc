@@ -156,9 +156,11 @@ const ProfileCard: React.FC = () => {
               </p>
             </div>
           </div>
+          <hr />
           <div className="w-full pt-4">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">Login-Methods</h3>
-            <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg mb-4">
+            <h3 className="text-xl font-semibold text-gray-800 ">Login-Methods</h3>
+            <p className="text-gray-500 mb-4">Login into O2.ai</p>
+            <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg mb-4 border-o2">
               <div className="flex items-center">
                 <div className="w-15 h-15 mr-3">
                   <Image
