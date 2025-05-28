@@ -248,7 +248,7 @@ useEffect(() => {
                 <CallSummaryCard summary={graphData?.call_summary} />
               </div>
               <div className="w-full mb-6">
-                <SpeakerInsights speakerInsights={graphData?.speaker_insights} agentRating={graphData?.Agent_rating} role={useAccess.role} />
+                <SpeakerInsights speakerInsights={graphData?.speaker_insights} agentRating={graphData?.Agent_rating} role={useAccess.role} customerName={graphData?.Customer_name || ""}/>
               </div>
               <div className="flex flex-row gap-6  mt-6">
                 <div className="w-full">
