@@ -295,7 +295,7 @@ export default function Header({ sidebarOpen }: HeaderProps) {
           >
             Call Summary
           </Link>
-          <Link
+          {/* <Link
             href="/about"
             className={`transition ${
               pathname === "/about" ? "ot-title font-semibold activenavigation py-2 px-4 rounded-md" : "text-gray-700 hover:ot-title py-2 px-4 rounded-md"
@@ -310,7 +310,7 @@ export default function Header({ sidebarOpen }: HeaderProps) {
             }`}
           >
             Contact
-          </Link>
+          </Link> */}
         </nav>
 
         <button className="flex items-center space-x-2" onClick={openPopup}>
