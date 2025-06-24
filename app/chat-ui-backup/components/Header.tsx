@@ -1,4 +1,4 @@
-import { HomeIcon, SearchHistoryIcon } from "../components/icons"
+import { HomeIcon, SearchHistoryIcon } from "./icons"
 import { useState, useEffect } from "react"
 import { useAISearch } from "../../context/AISearchContext"
 import { decodeJWT } from "@/app/utils/decodeJWT"

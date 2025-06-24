@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useAISearch } from "../context/AISearchContext"
-import { CloseIcon } from "../chat-ui/components/icons"
+import { CloseIcon } from "../chat-ui-backup/components/icons"
 import ProfileCard from "../components/dashboard/ProfileCard"
 
 

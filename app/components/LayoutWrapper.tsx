@@ -3,12 +3,12 @@
 import { ReactNode, useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
 import Header from "./Header"
-import HeaderAISearch from "../chat-ui/components/Header"
+import HeaderAISearch from "../chat-ui-backup/components/Header"
 import Sidebar from "./dashboard/Sidebar"
 import Footer from "./Footer"
-import FooterAISearch from "../chat-ui/components/Footer"
+import FooterAISearch from "../chat-ui-backup/components/Footer"
 import { DashboardProvider } from "../context/DashboardContext"
-import PopupComponent from "../chat-ui/components/PopupComponent"
+import PopupComponent from "../chat-ui-backup/components/PopupComponent"
 import Popupprofile from "../components/Popupprofile"
 
 export default function LayoutWrapper({ children }: { children: ReactNode }) {

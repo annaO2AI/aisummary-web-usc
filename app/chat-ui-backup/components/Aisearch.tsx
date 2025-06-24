@@ -345,7 +345,7 @@ import {
   DOCIcon,
   PDFIcon,
   LogIcon
-} from "../components/icons"
+} from "./icons"
 import { useAISearch } from "../../context/AISearchContext"
 import { fetchWithAuth } from "@/app/utils/axios"
 import { API_ROUTES } from "../../constants/api"

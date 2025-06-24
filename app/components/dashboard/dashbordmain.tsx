@@ -5,7 +5,7 @@ import {
 } from "lucide-react"
 import {
   LoganimationsIcon,
-} from "../../chat-ui/components/icons"
+} from "../../chat-ui-backup/components/icons"
 import clsx from "clsx"
 import { AudioSelector, ProcessButton } from "./index"
 import { useDashboard } from "../../context/DashboardContext"

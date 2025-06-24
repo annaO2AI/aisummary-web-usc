@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import {
   LoganimationsIcon,
-} from "../chat-ui/components/icons"
+} from "../chat-ui-backup/components/icons"
 
 export default function AboutPage() {
   return (
