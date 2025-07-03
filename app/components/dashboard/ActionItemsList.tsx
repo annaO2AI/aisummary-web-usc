@@ -165,7 +165,7 @@ export default function ActionItemsList({ actionItems, emailSent, audioId }: Pro
     try {
       // Add audioId as a query parameter if available
       const url = audioId 
-        ? `${API_ROUTES.downloadReport}?audioId=${encodeURIComponent(audioId)}`
+        ? `${API_ROUTES.downloadReport}`
         : API_ROUTES.downloadReport;
 
       const response = await fetchWithAuth(url, {
