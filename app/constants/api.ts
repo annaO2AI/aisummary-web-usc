@@ -15,7 +15,7 @@ export const API_ROUTES = {
   models: `${API_BASE_URL}/models`,
   processCall: `${API_BASE_URL}/process-call`,
   sentimentGraphInteractive: `${API_BASE_URL}/sentiment-graph-interactive`,
-  downloadReport: `${API_BASE_URL}download-report`,
+  downloadReport: `${API_BASE_URL}/download-report`,
   useaccess: `${API_BASE_URL}/get-user-role`,
 
   //AI Search api's
