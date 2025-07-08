@@ -172,9 +172,10 @@ useEffect(() => {
               <div className="flex flex-row gap-6  mt-6">
                 <div className="w-full">
                   <ActionItemsList
-                      actionItems={graphData?.action_items ?? []}
-                      emailSent={graphData?.email_sent ?? []}
-                      audioId={selectedAudio || ""}
+                    actionItems={graphData?.action_items ?? []}
+                    emailSent={graphData?.email_sent ?? []}
+                    audioId={selectedAudio || ""}
+                    sentimentScore={graphData?.sentiment_score} // Add sentimentScore prop
                   />
                 </div>
               </div>

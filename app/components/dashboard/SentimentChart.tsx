@@ -276,9 +276,9 @@ export default function SentimentChart({ data }: { data?: SentimentItem[] }) {
           {/* Gradient Line */}
           <defs>
             <linearGradient id="sentimentGradient" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="#ef4444" /> {/* red */}
-              <stop offset="50%" stopColor="#6366f1" /> {/* indigo */}
-              <stop offset="100%" stopColor="#28bede" /> {/* cyan-blue */}
+              <stop offset="0%" stopColor="#363257" /> {/* red */}
+              <stop offset="50%" stopColor="#363257" /> {/* indigo */}
+              <stop offset="100%" stopColor="#363257" /> {/* cyan-blue */}
             </linearGradient>
           </defs>
 

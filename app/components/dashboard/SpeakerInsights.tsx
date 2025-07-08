@@ -111,11 +111,14 @@ const SpeakerInsights = ({
               </h3>
             </div>
             <p className="text-green-700">{speakerInsights.Customer}</p>
-            {role === "Admin" && (
+            {/* {role === "Admin" && (
               <button className="mt-4 px-4 py-2 bg-green-700 text-white rounded hover:bg-green-800" onClick={CustomerButtonClick}>
                 View Details
               </button>
-            )}
+            )} */}
+              <button className="mt-4 px-4 py-2 bg-green-700 text-white rounded hover:bg-green-800" onClick={CustomerButtonClick}>
+                View Details
+              </button>
             <PopupModal isOpen={customerisOpen} onClose={customerClose}>
               <div className="p-12">
                 {/* Header Section */}
@@ -198,11 +201,14 @@ const SpeakerInsights = ({
               </div>
             </div>
             <p className="text-blue-700">{speakerInsights.Agent}</p>
-            {role === "Admin" && (
+            {/* {role === "Admin" && (
               <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" onClick={AgentButtonClick}>
                 View Details
               </button>
-            )}
+            )} */}
+            <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" onClick={AgentButtonClick}>
+                View Details
+              </button>
             <PopupModal isOpen={agentisOpen} onClose={agentClose}>
               <div className="p-12">
                 {/* Header Section */}
