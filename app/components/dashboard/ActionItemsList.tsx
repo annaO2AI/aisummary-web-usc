@@ -267,7 +267,7 @@ export default function ActionItemsList({ actionItems, emailSent, audioId, senti
 
   // Check localStorage on component mount to maintain button state
   useEffect(() => {
-    const hasUploaded = localStorage.getItem(`reportUploaded_${audioId}`)
+    const hasUploaded = sessionStorage.getItem(`reportUploaded_${audioId}`)
     if (hasUploaded === 'true') {
       setIsButtonDisabled(true)
       setSuccessMessage('Report successfully uploaded')
