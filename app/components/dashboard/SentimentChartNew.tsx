@@ -358,7 +358,7 @@ export default function SentimentChartNew({ data }: { data?: SentimentItem[] }) 
     <div className="bg-gray-50 rounded-xl p-6 semantic-chart-new-wrapper">
       <div className="relative semantic-chart-new">
         {/* Y-axis labels */}
-        <div className="absolute left-0 top-0 h-full flex flex-col justify-between text-sm text-gray-600 font-medium z-10 sentimentChart-labels">
+        <div className="absolute left-0 top-0 h-full flex flex-col justify-between text-sm text-gray-600 font-medium z-10 sentimentChart-labels transition-all duration-300 backdrop-blur-xl supports-[backdrop-filter]:bg-white/0 semantic-chartp-n-n">
           <div>Positive</div>
           <div>Neutral</div>
           <div>Negative</div>
