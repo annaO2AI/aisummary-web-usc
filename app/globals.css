@@ -153,4 +153,195 @@ body {
     background-color: #3C77EF;
     border-radius: 10px;
   }
+
+  .semantic-chart-new .positive-sentimaent-box{
+          bottom: 202px;
+  }
+  .semantic-chart-new .negative-sentimaent-box{
+         bottom: 46px;
+  }
+  .semantic-chart-new .Neutral-sentimaent-box{
+        bottom: 80px;
+  }
+  .semantic-chart-new .overflow-custome-set{
+        height: 310px;
+  }
+ .sentimentChart-labels{
+    height: 190px;
+    margin-top: 35px;
+  }
+  /*Neutal*/
+  .Neutral-sentimaent-box .damy-box::after{
+    content: "";
+    height: 72px;
+    width: 80px;
+    background-color: #ffffff6b;
+    display: block;
+    position: absolute;
+    top: -80px;
+    left: 0;
+  }
+  .Neutral-sentimaent-box .damy-box::before{
+    content: "";
+    height: 72px;
+    width: 80px;
+    background-color: #ffffff6b;
+    display: block;
+    position: absolute;
+    top: 92px;
+    left: 0;
+  }
+  /*positive*/
+  .positive-sentimaent-box .damy-box::after{
+    content: "";
+    height: 72px;
+    width: 80px;
+    background-color: #ffffff6b;
+    display: block;
+    position: absolute;
+    top: 172px;
+    left: 0;
+  }
+  .positive-sentimaent-box .damy-box::before{
+    content: "";
+    height: 72px;
+    width: 80px;
+    background-color: #ffffff6b;
+    display: block;
+    position: absolute;
+    top: 92px;
+    left: 0;
+  }
+  /*negative*/
+   .negative-sentimaent-box .damy-box::after{
+    content: "";
+    height: 72px;
+    width: 80px;
+    background-color: #ffffff6b;
+    display: block;
+    position: absolute;
+    top: -160px;
+    left: 0;
+  }
+  .negative-sentimaent-box .damy-box::before{
+    content: "";
+    height: 72px;
+    width: 80px;
+    background-color: #ffffff6b;
+    display: block;
+    position: absolute;
+    top: -80px;
+    left: 0;
+  }
+
+  .semantic-chart-new-wrapper {
+    background: #EFF9FF;
+    background: linear-gradient(112deg,rgba(239, 249, 255, 1) 50%, rgba(238, 239, 249, 1) 100%);
+  }
+  /*Neutral-sentimaent-box*/
+    .Neutral-sentimaent-box.next-Positive::after,
+    .Neutral-sentimaent-box.next-Neutral::after,
+    .Neutral-sentimaent-box.next-Negative::after,
+    .positive-sentimaent-box.next-Positive::after,
+    .positive-sentimaent-box.next-Neutral::after,
+    .positive-sentimaent-box.next-Negative::after,
+    .negative-sentimaent-box.next-Positive::after,
+    .negative-sentimaent-box.next-Neutral::after,
+    .negative-sentimaent-box.next-Negative::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 40px;
+      top: 0;
+      right: -40px;
+      z-index: -1;
+    }
+
+
+  .Neutral-sentimaent-box.next-Positive::after{
+    background-image:url(./../public/allsentimat-path/Neutral-next-Positive.svg) ;
+    height: 164px;
+    bottom: 0px;
+    top: unset;
+  }
+  .Neutral-sentimaent-box.next-Neutral::after{
+     background-image:url(./../public/allsentimat-path/Neutral-next-Neutral.svg) ;
+    height: 88px;
+    bottom: 0px;
+    top: unset;
+  }
+  .Neutral-sentimaent-box.next-Negative::after{
+    background-image:url(./../public/allsentimat-path/Neutral-next-Negative.svg) ;
+    height: 166px;
+    top: 0px;
+    bottom: unset;
+  }
+  /*Positive-sentimaent-box*/
+  .positive-sentimaent-box.next-Positive::after{
+      background-image:url(./../public/allsentimat-path/Positve-next-Positve.svg) ;
+      height: 88px;
+      bottom: 0px;
+      top: unset;
+  }
+  .positive-sentimaent-box.next-Neutral::after{
+      background-image:url(./../public/allsentimat-path/Positve-next-Neutral.svg) ;
+      height: 167px;
+      top: 0px;
+      bottom: unset;
+  }
+  .positive-sentimaent-box.next-Negative::after{
+      background-image:url(./../public/allsentimat-path/Positve-next-negative.svg) ;
+      height: 246px;
+      top: 0px;
+      bottom: unset;
+  }
+   /*Negative-sentimaent-box*/
+  .negative-sentimaent-box.next-Positive::after{
+      background-image:url(./../public/allsentimat-path/Negative-next-Positive.svg) ;
+      height: 245px;
+      bottom: 0px;
+      top: unset;
+  }
+  .negative-sentimaent-box.next-Neutral::after{
+     background-image:url(./../public/allsentimat-path/Negative-next-Neutral.svg) ;
+    height: 166px;
+    bottom: 0px;
+    top: unset;
+  }
+  .negative-sentimaent-box.next-Negative::after{
+    background-image:url(./../public/allsentimat-path/Negative-next-negative.svg) ;
+    height: 88px;
+    bottom: 0px;
+    top: unset;
+  }
+  .timelint-section{
+    margin-top: -20px;
+  }
+
+  /* styles.css or global.css */
+  .overflow-custome-set {
+    scrollbar-width: thin;
+    scrollbar-color: #C0C6CD transparent;
+  }
+
+  /* For Webkit-based browsers like Chrome, Edge, Safari */
+  .overflow-custome-set::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .overflow-custome-set::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .overflow-custome-set::-webkit-scrollbar-thumb {
+    background-color: #C0C6CD;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  .overflow-custome-set::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+
 }

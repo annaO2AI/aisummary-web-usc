@@ -14,7 +14,7 @@ export function middleware(request: NextRequest) {
     const loginUrl = `https://aisummary-api-usc-geemebfqfmead8f4.centralus-01.azurewebsites.net?redirect_uri=${encodeURIComponent(
       redirectTo
     )}`
-    return NextResponse.redirect(loginUrl)
+    // return NextResponse.redirect(loginUrl)
   }
 
   return NextResponse.next()

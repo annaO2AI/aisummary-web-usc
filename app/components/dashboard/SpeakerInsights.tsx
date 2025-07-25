@@ -69,7 +69,7 @@ const SpeakerInsights = ({
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {/* {insights.map(({ title, text, icon, color, src }, idx) => (
         <div
           key={idx}
