@@ -175,7 +175,7 @@ body {
     content: "";
     height: 72px;
     width: 80px;
-    background-color: #ffffff6b;
+    background-color: transparent;
     display: block;
     position: absolute;
     top: -80px;
@@ -185,7 +185,7 @@ body {
     content: "";
     height: 72px;
     width: 80px;
-    background-color: #ffffff6b;
+    background-color: transparent;
     display: block;
     position: absolute;
     top: 92px;
@@ -196,7 +196,7 @@ body {
     content: "";
     height: 72px;
     width: 80px;
-    background-color: #ffffff6b;
+    background-color: transparent;
     display: block;
     position: absolute;
     top: 172px;
@@ -206,7 +206,7 @@ body {
     content: "";
     height: 72px;
     width: 80px;
-    background-color: #ffffff6b;
+    background-color: transparent;
     display: block;
     position: absolute;
     top: 92px;
@@ -217,7 +217,7 @@ body {
     content: "";
     height: 72px;
     width: 80px;
-    background-color: #ffffff6b;
+    background-color: transparent;
     display: block;
     position: absolute;
     top: -160px;
@@ -227,7 +227,7 @@ body {
     content: "";
     height: 72px;
     width: 80px;
-    background-color: #ffffff6b;
+    background-color: transparent;
     display: block;
     position: absolute;
     top: -80px;
@@ -342,6 +342,17 @@ body {
 
   .overflow-custome-set::-webkit-scrollbar-thumb:hover {
     background-color: #555;
+  }
+
+  .two-line-ellipsis {
+    display: -webkit-box; /* Required for -webkit-line-clamp */
+    -webkit-line-clamp: 2; /* Limits the text to two lines */
+    -webkit-box-orient: vertical; /* Specifies the orientation of the box */
+    overflow: hidden; /* Hides overflowing content */
+    text-overflow: ellipsis; /* Displays an ellipsis (...) for truncated text */
+  }
+  .damy-box{
+    height: 90px;
   }
 
 }

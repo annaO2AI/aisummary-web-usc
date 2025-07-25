@@ -425,11 +425,11 @@ export default function SentimentChartNew({ data }: { data?: SentimentItem[] }) 
 
                       </div>
                       
-                      <div className="text-xs  font-normal mt-1">Sentiment</div>
-                      <div className="font-bold text-xs">{getSentimentLabel(event.sentiment)}</div>
+                      {/* <div className="text-xs  font-normal mt-1">Sentiment</div> */}
+                      <div className="font-bold text-md mt-1">{getSentimentLabel(event.sentiment)}</div>
                       
                       {/* Original text with ellipsis inside the box */}
-                      <div className="text-xs opacity-80 mt-1 truncate" 
+                      <div className="text-xs opacity-80 mt-1 two-line-ellipsis" 
                            style={{ fontSize: '10px' }}
                            title={event.text}>
                         {event.text}
