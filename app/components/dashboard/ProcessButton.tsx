@@ -7,6 +7,8 @@ type Props = {
   loading: boolean
   setLoading: (v: boolean) => void
   setHasProcessed: (hasProcessed: boolean) => void
+    setProgress:(V:number) => void
+
 }
 
 export default function ProcessButton({
@@ -14,6 +16,7 @@ export default function ProcessButton({
   setGraphData,
   loading,
   setLoading,
+    setProgress,
   setHasProcessed,
 }: Props) {
   const handleProcess = async () => {

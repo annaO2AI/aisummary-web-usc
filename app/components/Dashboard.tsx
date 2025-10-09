@@ -480,8 +480,8 @@ const Dashboard = () => {
     if (loading) {
       setProgress(10);
       timer = setInterval(() => {
-        setProgress((prev) => Math.min(prev + 80 / 60, 90));
-      }, 100);
+        setProgress((prev) => Math.min(prev + 80 / 60, 99));
+      }, 800)
     } else {
       setProgress(0);
     }
@@ -579,7 +579,7 @@ const Dashboard = () => {
           showDashboardMain ? "opacity-100 block Dashbordmain-main" : "opacity-0 hidden"
         )}
       >
-        {showDashboardMain && <Dashbordmain />}
+        {showDashboardMain && <Dashbordmain setProgress={setProgress} />}
       </div>
 
       {/* Loading message */}

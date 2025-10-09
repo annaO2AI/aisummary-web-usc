@@ -145,7 +145,7 @@ const [isProgress, setIsProgress] = useState(0)
             loading={loading}
             setLoading={setLoading}
             setHasProcessed={setHasProcessed}
-            // setProgress={setIsProgress}
+            setProgress={setIsProgress}
           />
 
           {/* Menu Items */}

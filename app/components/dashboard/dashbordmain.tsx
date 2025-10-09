@@ -20,7 +20,9 @@ const navItems = [
 ]
 
 
-export default function Dashbordmain() {
+export default function Dashbordmain({setProgress}:{
+  setProgress:(v:number) => void
+}) {
   const [username, setUsername] = useState<string | null>(null)
   
   const {
@@ -104,6 +106,7 @@ export default function Dashbordmain() {
                     loading={loading}
                     setLoading={setLoading}
                     setHasProcessed={setHasProcessed}
+                    setProgress={setProgress}
                 />
                 </div>
             </div>
