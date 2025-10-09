@@ -25,7 +25,7 @@ export default function AnomalyDetection({
     }
   },[])
   return (
-    <div className="flex justify-between rounded-xl shadow-sm bg-white anomalyDetaction-main-bg mb-12">
+    <div className="flex justify-between rounded-xl shadow-sm bg-black anomalyDetaction-main-bg mb-12">
       <div>
         <div className="flex items-center justify-between p-6 pl-12 pb-0">
           <h2 className=" text-white text-[26px]">Anomaly detected</h2>

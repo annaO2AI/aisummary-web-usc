@@ -30,7 +30,7 @@ export default function Dashbordmain() {
     setGraphData,
     loading,
     setLoading,
-    
+    setHasProcessed,
   } = useDashboard();
 
  useEffect(() => {
@@ -93,7 +93,7 @@ export default function Dashbordmain() {
                         <AudioSelector
                             selectedAudio={selectedAudio}
                             setSelectedAudio={setSelectedAudio}
-                            clearGraphData={() => setGraphData([])}
+                            clearGraphData={() => setGraphData({})}
                         />
                     </div>
                 </div>
@@ -103,6 +103,7 @@ export default function Dashbordmain() {
                     setGraphData={setGraphData}
                     loading={loading}
                     setLoading={setLoading}
+                    setHasProcessed={setHasProcessed}
                 />
                 </div>
             </div>

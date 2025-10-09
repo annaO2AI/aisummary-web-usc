@@ -248,7 +248,8 @@ import {
   OSCard,
   ProgressBar,
   SentimentChartNew,
-  Dashbordmain
+  Dashbordmain,
+    AnomalyDetection,
 } from "./dashboard/index";
 import { useDashboard } from "../context/DashboardContext";
 import SentimentScoreCard from "./dashboard/cards/SentimentScoreCard";
@@ -261,6 +262,7 @@ import { fetchWithAuth } from "../utils/axios";
 import { DndContext, closestCenter, useSensor, useSensors, PointerSensor } from "@dnd-kit/core";
 import { SortableContext, verticalListSortingStrategy, useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import Toast from "./dashboard/Toast";
 
 import type React from "react";
 
@@ -313,14 +315,28 @@ const Dashboard = () => {
   const [useremail, setUseremail] = useState<string | null>(null);
   const [useAccess, setUseAccess] = useState<Record<string, string>>({});
   const [loadinguse, setLoading] = useState(true);
+  const [sections, setSections] = useState<Section[]>([]);
+  const [isToast, setIsToast] = useState(false);
+
+  // Check for anomalies in the graphData
+  const isAnomaly = graphData?.anomaly_detection?.isAnomaly ?? false;
+  const anomalyCount = graphData?.anomaly_detection?.anomalyCount ?? 0;
+  const reasons = graphData?.anomaly_detection?.reasons ?? [];
+  const hasAnyAnomaly = Boolean(isAnomaly) || anomalyCount > 0 || reasons.length > 0;
 
   // Debug graphData to inspect its structure
   useEffect(() => {
-    console.log("graphData:", graphData);
-  }, [graphData]);
+ }, [graphData, hasAnyAnomaly, isAnomaly, anomalyCount, reasons]);
 
-  // FIXED: Use in-memory state instead of localStorage to prevent failures
-  const [sections, setSections] = useState<Section[]>([]);
+  // Show toast when anomaly is detected
+  useEffect(() => {
+    if (showAudioInsights && hasAnyAnomaly) {
+      console.log("Anomaly detected, showing toast:", graphData?.anomaly_detection);
+      setIsToast(true);
+    } else if (showAudioInsights && !hasAnyAnomaly) {
+      setIsToast(false);
+    }
+  }, [showAudioInsights, hasAnyAnomaly]);
 
   // Initialize sections when graphData is available
   useEffect(() => {
@@ -392,6 +408,19 @@ const Dashboard = () => {
           ),
           visible: true,
         },
+        // Add AnomalyDetection component if there are anomalies
+        ...(hasAnyAnomaly ? [{
+          id: "anomaly-detection",
+          component: (
+            <AnomalyDetection
+              isAnomaly={isAnomaly}
+              anomalyCount={anomalyCount}
+              reasons={reasons}
+              setToast={setIsToast}
+            />
+          ),
+          visible: true,
+        }] : []),
       ]);
     }
   }, [graphData, selectedAudio, useAccess.role, showAudioInsights]);
@@ -494,6 +523,17 @@ const Dashboard = () => {
 
   return (
     <div className="relative z-0 max-w-7xl mx-auto space-y-6 px-4">
+      {/* Toast notification for anomalies */}
+      {isToast && hasAnyAnomaly && (
+         <Toast
+                  open={isToast}
+                  title="Success!"
+                  description="Anomaly detected"
+                  buttonText="Close"
+                  onButtonClick={() => setIsToast(false)}
+                />
+      )}
+
       {/* Audio Insights */}
       <div
         className={clsx(
@@ -562,7 +602,7 @@ const Dashboard = () => {
             Process New Audio
           </button>
         </div>
-      )}
+        )}
     </div>
   );
 };
