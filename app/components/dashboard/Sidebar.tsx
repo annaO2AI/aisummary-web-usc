@@ -39,6 +39,7 @@ export default function Sidebar({
     setGraphData,
     loading,
     setLoading,
+    setHasProcessed,
   } = useDashboard()
 const [isProgress, setIsProgress] = useState(0)
   const isExpanded = !collapsed
@@ -143,6 +144,7 @@ const [isProgress, setIsProgress] = useState(0)
             setGraphData={setGraphData}
             loading={loading}
             setLoading={setLoading}
+            setHasProcessed={setHasProcessed}
             // setProgress={setIsProgress}
           />
 
