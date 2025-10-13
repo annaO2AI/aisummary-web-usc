@@ -12,13 +12,6 @@ function AccessDeniedContent() {
     setEmail(params.get("email"))
   }, [params])
 
-  const handleBackToLogin = () => {
-    const redirectTo = `${window.location.origin}/auth/callback`
-    const loginUrl = `https://ai-call-summary-ap-batch-fjfxdsdhdkd5b7bt.centralus-01.azurewebsites.net?redirect_uri=${encodeURIComponent(
-      redirectTo
-    )}`
-    router.replace(loginUrl)
-  }
 
   return (
     <div className="min-h-screen flex items-center justify-center p-6 bg-gray-50">
