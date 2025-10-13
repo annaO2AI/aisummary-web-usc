@@ -1,9 +1,9 @@
 "use client"
-
 import { useEffect, useState } from "react"
 import { API_ROUTES } from "../../constants/api"
 import AudioPlayer from "./AudioPlayer"
 import { fetchWithAuth } from "../../utils/axios"
+
 type Props = {
   selectedAudio: string | null
   setSelectedAudio: (filename: string) => void
@@ -17,6 +17,8 @@ export default function AudioSelector({
 }: Props) {
   const [audioMap, setAudioMap] = useState<Record<string, string>>({})
   const [loading, setLoading] = useState(true)
+  const [audioUrl, setAudioUrl] = useState<string>("")
+  const [fetchingAudio, setFetchingAudio] = useState(false)
 
   useEffect(() => {
     const fetchAudioFiles = async () => {
@@ -30,14 +32,44 @@ export default function AudioSelector({
         setLoading(false)
       }
     }
-
     fetchAudioFiles()
   }, [])
 
-  const audioUrl =
-    selectedAudio && audioMap[selectedAudio]
-      ? "/" + audioMap[selectedAudio].replace(/\\/g, "/")
-      : ""
+  useEffect(() => {
+    const fetchAudioUrl = async () => {
+      if (!selectedAudio) {
+        setAudioUrl("")
+        return
+      }
+
+      setFetchingAudio(true)
+      try {
+        const response = await fetch(
+          `https://ai-call-summary-api-hpb0afdgbtb6e5ca.centralus-01.azurewebsites.net/audio/${selectedAudio}`,
+          {
+            method: 'GET',
+            headers: {
+              'accept': 'application/json'
+            }
+          }
+        )
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        
+        const data = await response.json()
+        setAudioUrl(data.url)
+      } catch (err) {
+        console.error("Failed to fetch audio URL:", err)
+        setAudioUrl("")
+      } finally {
+        setFetchingAudio(false)
+      }
+    }
+
+    fetchAudioUrl()
+  }, [selectedAudio])
 
   return (
     <>
@@ -45,37 +77,33 @@ export default function AudioSelector({
         <p>Loading audio files...</p>
       ) : (
         <div className="relative">
-        <select
-          className="w-full h-[45px] appearance-none px-4 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          onChange={(e) => {
-            setSelectedAudio(e.target.value)
-            clearGraphData()
-          }}
-          defaultValue=""
-        >
-          <option value="" disabled>
-            Select an audio file
-          </option>
-          {Object.keys(audioMap).map((key) => (
-            <option key={key} value={key}>
-              {key}
+          <select
+            className="w-full h-[45px] appearance-none px-4 pr-10 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            onChange={(e) => {
+              setSelectedAudio(e.target.value)
+              clearGraphData()
+            }}
+            defaultValue=""
+          >
+            <option value="" disabled>
+              Select an audio file
             </option>
-          ))}
-        </select>
-        <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none">
-        {/* <svg className="w-4 h-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-          <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-        </svg> */}
-
-        <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1.10378 1.09419L5.82044 6.00739L10.5371 1.09419" stroke="#34334B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-
-      </div>
-      </div>
+            {Object.keys(audioMap).map((key) => (
+              <option key={key} value={key}>
+                {key}
+              </option>
+            ))}
+          </select>
+          <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none">
+            <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.10378 1.09419L5.82044 6.00739L10.5371 1.09419" stroke="#34334B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+        </div>
       )}
       <div className="dashbord-miannot">
-        {selectedAudio && <AudioPlayer src={audioUrl} />}
+        {fetchingAudio && <p>Loading audio...</p>}
+        {selectedAudio && audioUrl && !fetchingAudio && <AudioPlayer src={audioUrl} />}
       </div>
     </>
   )
