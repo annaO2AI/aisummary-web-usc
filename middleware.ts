@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 
-const PUBLIC_PATHS = ["auth/callback"]
+const PUBLIC_PATHS = ["/auth/callback"]
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
@@ -10,8 +10,8 @@ export function middleware(request: NextRequest) {
   const token = request.cookies.get("access_token")?.value
 
   if (!isPublicPath && !token) {
-    const redirectTo = `${request.nextUrl.origin}auth/callback`
-    const loginUrl = `https://ai-call-summary-api-hpb0afdgbtb6e5ca.centralus-01.azurewebsites.net/?redirect_uri=${encodeURIComponent(
+    const redirectTo = `${request.nextUrl.origin}/auth/callback`
+    const loginUrl = `https://ai-call-summary-ap-batch-fjfxdsdhdkd5b7bt.centralus-01.azurewebsites.net?redirect_uri=${encodeURIComponent(
       redirectTo
     )}`
     return NextResponse.redirect(loginUrl)
