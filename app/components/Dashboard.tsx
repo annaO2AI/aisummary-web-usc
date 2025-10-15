@@ -402,6 +402,7 @@ const Dashboard = () => {
                   emailSent={graphData?.email_sent ?? []}
                   audioId={selectedAudio || ""}
                   sentimentScore={graphData?.sentiment_score ?? 0}
+                  incidentNumber={graphData?.inc_number || ""}
                 />
               </div>
             </div>
