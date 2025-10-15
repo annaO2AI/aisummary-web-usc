@@ -246,6 +246,7 @@ import EmailSentTags from "./EmailSentTags"
 import Image from 'next/image';
 import { API_ROUTES } from "../../constants/api"
 import { fetchWithAuth } from "../../utils/axios"
+import FeedbackModal from "./FeedBack"
 import { useState, useEffect } from "react"
 
 type ActionItem = {
@@ -257,20 +258,29 @@ type Props = {
   emailSent: string[]
   audioId: string
   sentimentScore?: number
+  incidentNumber?: string 
 }
 
-export default function ActionItemsList({ actionItems, emailSent, audioId, sentimentScore }: Props) {
+export default function ActionItemsList({ actionItems, emailSent, audioId, sentimentScore,  incidentNumber = "" }: Props) {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [successMessage, setSuccessMessage] = useState<string | null>(null)
   const [isButtonDisabled, setIsButtonDisabled] = useState(false)
+  const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false)
+  const [isSurveySubmitted, setIsSurveySubmitted] = useState(false)
 
   // Check localStorage on component mount to maintain button state
   useEffect(() => {
     const hasUploaded = sessionStorage.getItem(`reportUploaded_${audioId}`)
+        const hasSurveySubmitted = sessionStorage.getItem(`surveySubmitted_${audioId}`)
+    
     if (hasUploaded === 'true') {
       setIsButtonDisabled(true)
       setSuccessMessage('Report successfully uploaded')
+    }
+        
+    if (hasSurveySubmitted === 'true') {
+      setIsSurveySubmitted(true)
     }
   }, [audioId])
 
@@ -306,7 +316,7 @@ export default function ActionItemsList({ actionItems, emailSent, audioId, senti
       setSuccessMessage('Report successfully uploaded');
       setIsButtonDisabled(true)
       // Store upload status in localStorage
-      localStorage.setItem(`reportUploaded_${audioId}`, 'true')
+    sessionStorage.setItem(`reportUploaded_${audioId}`, 'true')
 
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'An error occurred while uploading the report';
@@ -318,6 +328,20 @@ export default function ActionItemsList({ actionItems, emailSent, audioId, senti
     } finally {
       setIsLoading(false)
     }
+  }
+
+  
+  const handleSubmitSurvey = () => {
+    setIsFeedbackModalOpen(true)
+  }
+
+  const handleFeedbackSuccess = () => {
+    setIsSurveySubmitted(true)
+    sessionStorage.setItem(`surveySubmitted_${audioId}`, 'true')
+    setSuccessMessage('Survey submitted successfully')
+    setTimeout(() => {
+      setSuccessMessage(null)
+    }, 3000)
   }
 
   return (
@@ -340,14 +364,24 @@ export default function ActionItemsList({ actionItems, emailSent, audioId, senti
               </li>
             ))}
           </ul>
-          <div className="mt-4">
+         
+                   <div className="mt-4 flex gap-4 flex-wrap">
             <button 
-              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-blue-300 disabled:cursor-not-allowed"
+              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-blue-300 disabled:cursor-not-allowed transition-all"
               onClick={handleUploadReport}
               disabled={isLoading || isButtonDisabled}
             >
               {isLoading ? 'Uploading...' : 'Upload Report'}
             </button>
+            <button 
+              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-blue-300 disabled:cursor-not-allowed transition-all"
+              onClick={handleSubmitSurvey}
+              disabled={isSurveySubmitted}
+            >
+              {isSurveySubmitted ? 'Survey Submitted' : 'Submit Survey'}
+            </button>
+          </div>
+          
             {isLoading && (
               <div className="mt-2 w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
                 <div 
@@ -364,12 +398,18 @@ export default function ActionItemsList({ actionItems, emailSent, audioId, senti
             {error && (
               <p className="mt-2 text-sm text-red-500">{error}</p>
             )}
-          </div>
         </div>
         <div className="w-[35%] rounded-2xl boxshadow bg-white emailactivatbg emailBoder">
           <EmailSentTags emailSent={emailSent} sentimentScore={sentimentScore}/>
         </div>
       </div>
+           <FeedbackModal
+        isOpen={isFeedbackModalOpen}
+        onClose={() => setIsFeedbackModalOpen(false)}
+        incidentNum={incidentNumber}
+        onSubmitSuccess={handleFeedbackSuccess}
+      />
+      
       <style jsx>{`
         @keyframes progress {
           0% {
