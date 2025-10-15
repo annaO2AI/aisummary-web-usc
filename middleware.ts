@@ -10,7 +10,7 @@ export function middleware(request: NextRequest) {
   const token = request.cookies.get("access_token")?.value
 
   if (!isPublicPath && !token) {
-    const redirectTo = `${request.nextUrl.origin}/auth/callback`
+    const redirectTo = `${request.nextUrl.origin}auth/callback`
     const loginUrl = `https://ai-call-summary-api-hpb0afdgbtb6e5ca.centralus-01.azurewebsites.net/?redirect_uri=${encodeURIComponent(
       redirectTo
     )}`
