@@ -28,7 +28,7 @@ export default function ProcessButton({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          filenames: [selectedAudio],
+          filename: selectedAudio,
           model_option: "AzureOpenAI",
         }),
       })
