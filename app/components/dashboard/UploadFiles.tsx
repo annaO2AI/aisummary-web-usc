@@ -52,7 +52,7 @@ const AudioUploadComponent: React.FC = () => {
     setFilesError(null);
     try {
       const res = await fetch(
-        "https://ai-service-desk-single-a3czh7g4f9g5gnb3.centralus-01.azurewebsites.net/files",
+        "https://ai-call-summary-api-hpb0afdgbtb6e5ca.centralus-01.azurewebsites.net/files",
         {
           method: "GET",
           headers: {
@@ -94,7 +94,7 @@ const AudioUploadComponent: React.FC = () => {
 
     try {
       const res = await fetch(
-        `https://ai-service-desk-single-a3czh7g4f9g5gnb3.centralus-01.azurewebsites.net/check-incidient-number?inc_number=${encodeURIComponent(
+        `https://ai-call-summary-api-hpb0afdgbtb6e5ca.centralus-01.azurewebsites.net/check-incidient-number?inc_number=${encodeURIComponent(
           incNumber
         )}`,
         {
@@ -165,7 +165,7 @@ const uploadFile = async (): Promise<void> => {
     params.append("file_name", selectedFile);
 
     const res = await fetch(
-      "https://ai-service-desk-single-a3czh7g4f9g5gnb3.centralus-01.azurewebsites.net/upload-report-to-incident-from-blob",
+      "https://ai-call-summary-api-hpb0afdgbtb6e5ca.centralus-01.azurewebsites.net/upload-report-to-incident-from-blob",
       {
         method: "POST",
         headers: {
