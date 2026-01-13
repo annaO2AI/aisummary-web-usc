@@ -28,7 +28,7 @@ export default function AgentSummaryPage() {
     try {
       const startParam = encodeURIComponent(formatForApi(start))
       const endParam = encodeURIComponent(formatForApi(end))
-      const url = `https://ai-call-summary-api-hpb0afdgbtb6e5ca.centralus-01.azurewebsites.net/agent_statistics?start_datetime=${startParam}&end_datetime=${endParam}`
+      const url = `https://ai-service-desk-single-a3czh7g4f9g5gnb3.centralus-01.azurewebsites.net/agent_statistics?start_datetime=${startParam}&end_datetime=${endParam}`
       const response = await fetch(url, { headers: { accept: "application/json" }, cache: "no-store" })
       if (!response.ok) {
         setAgents([])

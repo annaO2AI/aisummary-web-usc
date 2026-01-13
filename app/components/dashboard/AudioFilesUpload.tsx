@@ -67,7 +67,7 @@ const AudioFilesUploadComponent: React.FC = () => {
 
     try {
       const res = await fetch(
-        "https://ai-call-summary-api-hpb0afdgbtb6e5ca.centralus-01.azurewebsites.net/upload-audio/",
+        "https://ai-service-desk-single-a3czh7g4f9g5gnb3.centralus-01.azurewebsites.net/upload-audio/",
         {
           method: "POST",
           headers: {
